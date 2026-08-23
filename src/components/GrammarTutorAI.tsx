@@ -110,16 +110,16 @@ export const GrammarTutorAI: React.FC<GrammarTutorAIProps> = ({
   };
 
   return (
-    <div id="grammar-tutor-view" className="flex-1 flex flex-col h-[calc(100vh-6.5rem)] bg-[#F5F5F7] p-4 sm:p-6 max-w-5xl mx-auto w-full">
+    <div id="grammar-tutor-view" className="flex-1 flex flex-col h-[calc(100vh-6.5rem)] bg-[#F8F9FA] p-4 sm:p-6 max-w-5xl mx-auto w-full">
       
       {/* Header */}
       <div className="apple-card p-4 mb-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-2xl bg-[#0071E3]/10 flex items-center justify-center text-[#0071E3] flex-shrink-0">
+          <div className="w-10 h-10 rounded-2xl bg-[#4285F4]/10 flex items-center justify-center text-[#4285F4] flex-shrink-0">
             <Sparkles className="w-5 h-5" />
           </div>
           <div>
-            <h2 className="font-semibold text-[#1D1D1F] text-base flex items-center gap-2">
+            <h2 className="font-bold google-text-gradient text-base flex items-center gap-2">
               Advanced Grammar AI Explainer
             </h2>
             <p className="text-xs text-[#333336]">
@@ -127,7 +127,7 @@ export const GrammarTutorAI: React.FC<GrammarTutorAIProps> = ({
             </p>
           </div>
         </div>
-        <span className="text-xs px-3 py-1 rounded-full font-medium bg-black/[0.04] text-[#1D1D1F]">
+        <span className="text-xs px-3 py-1 rounded-full font-medium bg-black/[0.04] text-[#202124]">
           {languageMode === 'bilingual' ? '🇲🇲 Bilingual' : 'English Mode'}
         </span>
       </div>
@@ -144,8 +144,8 @@ export const GrammarTutorAI: React.FC<GrammarTutorAIProps> = ({
             <div
               className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-medium ${
                 m.sender === "user"
-                  ? "bg-[#1D1D1F] text-white"
-                  : "bg-[#0071E3]/10 text-[#0071E3]"
+                  ? "bg-[#202124] text-white"
+                  : "bg-[#4285F4]/10 text-[#4285F4]"
               }`}
             >
               {m.sender === "user" ? <User className="w-3.5 h-3.5" /> : <Bot className="w-3.5 h-3.5" />}
@@ -154,8 +154,8 @@ export const GrammarTutorAI: React.FC<GrammarTutorAIProps> = ({
             <div
               className={`max-w-[85%] rounded-2xl p-4 text-xs sm:text-sm leading-relaxed whitespace-pre-line ${
                 m.sender === "user"
-                  ? "bg-[#0071E3] text-white"
-                  : "bg-[#F5F5F7] text-[#1D1D1F] border border-black/[0.04]"
+                  ? "bg-[#4285F4] text-white"
+                  : "bg-[#F8F9FA] text-[#202124] border border-black/[0.04]"
               }`}
             >
               {m.text}
@@ -165,11 +165,11 @@ export const GrammarTutorAI: React.FC<GrammarTutorAIProps> = ({
 
         {isLoading && (
           <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-full bg-[#0071E3]/10 text-[#0071E3] flex items-center justify-center">
+            <div className="w-7 h-7 rounded-full bg-[#4285F4]/10 text-[#4285F4] flex items-center justify-center">
               <Bot className="w-3.5 h-3.5" />
             </div>
-            <div className="p-3.5 bg-[#F5F5F7] rounded-2xl border border-black/[0.04] text-xs text-[#333336] flex items-center gap-2">
-              <RefreshCw className="w-3.5 h-3.5 animate-spin text-[#0071E3]" />
+            <div className="p-3.5 bg-[#F8F9FA] rounded-2xl border border-black/[0.04] text-xs text-[#333336] flex items-center gap-2">
+              <RefreshCw className="w-3.5 h-3.5 animate-spin text-[#4285F4]" />
               <span>Analyzing grammar rules & structuring explanation...</span>
             </div>
           </div>
@@ -179,7 +179,7 @@ export const GrammarTutorAI: React.FC<GrammarTutorAIProps> = ({
       {/* Suggested Quick Questions */}
       <div className="mt-3 flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar">
         <span className="text-xs font-medium text-[#333336] flex items-center gap-1 pl-1 flex-shrink-0">
-          <Lightbulb className="w-3.5 h-3.5 text-[#FF9500]" />
+          <Lightbulb className="w-3.5 h-3.5 text-[#FBBC05]" />
           <span>Quick Ask:</span>
         </span>
         {samplePrompts.map((p, idx) => (
@@ -208,7 +208,7 @@ export const GrammarTutorAI: React.FC<GrammarTutorAIProps> = ({
               ? "သဒ္ဒါမေးခွန်း သို့မဟုတ် စစ်ဆေးလိုသော ဝါကျကို ရိုက်ထည့်ပါ..."
               : "Type any grammar question or sentence to analyze..."
           }
-          className="flex-1 px-4 py-2.5 text-xs sm:text-sm bg-white border border-black/[0.1] rounded-full focus:outline-none focus:ring-2 focus:ring-[#0071E3] text-[#1D1D1F] shadow-2xs"
+          className="flex-1 px-4 py-2.5 text-xs sm:text-sm bg-white border border-black/[0.1] rounded-full focus:outline-none focus:ring-2 focus:ring-[#4285F4] text-[#202124] shadow-2xs"
         />
         <button
           id="ai-tutor-send-btn"

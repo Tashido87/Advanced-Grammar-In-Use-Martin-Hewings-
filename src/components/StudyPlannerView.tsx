@@ -108,21 +108,21 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
   });
 
   return (
-    <div id="study-planner-view" className="flex-1 overflow-y-auto bg-[#F5F5F7] p-4 sm:p-6 lg:p-8 space-y-6 max-w-5xl mx-auto w-full">
+    <div id="study-planner-view" className="flex-1 overflow-y-auto bg-[#F8F9FA] p-4 sm:p-6 lg:p-8 space-y-6 max-w-5xl mx-auto w-full">
       
       {/* Header Banner */}
       <div className="apple-card p-6 sm:p-7 space-y-4">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-black/[0.05] pb-5">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="inline-block px-2.5 py-0.5 bg-black/[0.04] text-[#1D1D1F] text-sm font-semibold rounded-full">
+              <span className="inline-block px-2.5 py-0.5 bg-black/[0.04] text-[#202124] text-sm font-semibold rounded-full">
                 DIAGNOSTIC ASSESSMENT
               </span>
               <span className="text-sm font-medium text-[#333336]">
                 Cambridge Advanced Planner
               </span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-semibold text-[#1D1D1F] tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-bold google-text-gradient tracking-tight">
               Study Planner & Diagnostic Test
             </h1>
             <p className="text-sm sm:text-base text-[#333336] mt-1.5 leading-relaxed">
@@ -130,7 +130,7 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
             </p>
             {languageMode === 'bilingual' && (
               <div className="apple-burmese-box myanmar-text text-sm mt-2">
-                <span className="font-semibold text-[#0071E3] mr-1">🇲🇲</span>
+                <span className="font-semibold text-[#4285F4] mr-1">🇲🇲</span>
                 မည်သည့် Grammar Unit များကို အဓိက လေ့လာသင့်သည်ကို စစ်ဆေးနိုင်သည့် စာအုပ်ပါ အဆင့်စစ် မေးခွန်းတွဲ ဖြစ်ပါသည်။
               </div>
             )}
@@ -189,10 +189,10 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
         <div className="apple-card p-6 space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-black/[0.05] pb-4">
             <div>
-              <span className="text-sm uppercase tracking-wider text-[#0071E3] font-semibold">
+              <span className="text-sm uppercase tracking-wider text-[#4285F4] font-semibold">
                 Diagnostic Analysis Report
               </span>
-              <h2 className="text-xl sm:text-2xl font-semibold text-[#1D1D1F] mt-1">
+              <h2 className="text-xl sm:text-2xl font-semibold text-[#202124] mt-1">
                 Your Score: {totalScore} / {questions.length} ({Math.round((totalScore / questions.length) * 100)}%)
               </h2>
             </div>
@@ -206,17 +206,17 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
 
           {/* Weak Units Recommendation */}
           <div className="space-y-3">
-            <span className="text-sm font-semibold text-[#1D1D1F] block">
+            <span className="text-sm font-semibold text-[#202124] block">
               Targeted Units to Study Based on Mistakes:
             </span>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
               {Object.entries(sectionStats).map(([sName, stat]) => {
                 if (stat.correct === stat.total) return null;
                 return (
-                  <div key={sName} className="p-4 bg-[#F5F5F7] rounded-2xl border border-black/[0.04] text-sm space-y-2">
-                    <div className="flex items-center justify-between font-semibold text-[#1D1D1F]">
+                  <div key={sName} className="p-4 bg-[#F8F9FA] rounded-2xl border border-black/[0.04] text-sm space-y-2">
+                    <div className="flex items-center justify-between font-semibold text-[#202124]">
                       <span>{sName}</span>
-                      <span className="text-[#34C759] font-medium">{stat.correct}/{stat.total}</span>
+                      <span className="text-[#34A853] font-medium">{stat.correct}/{stat.total}</span>
                     </div>
                     {stat.weakUnits.length > 0 && (
                       <div className="flex items-center gap-1.5 flex-wrap pt-1">
@@ -255,15 +255,15 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
               id={`planner-q-${q.id}`}
               className={`apple-card p-5 sm:p-6 transition-all ${
                 isCorrect
-                  ? 'border-[#34C759]/40 bg-[#34C759]/5'
+                  ? 'border-[#34A853]/40 bg-[#34A853]/5'
                   : isWrong || isUnanswered
-                  ? 'border-[#FF3B30]/40 bg-[#FF3B30]/5'
+                  ? 'border-[#EA4335]/40 bg-[#EA4335]/5'
                   : ''
               }`}
             >
               <div className="flex items-start justify-between gap-2 mb-2">
                 <div className="flex items-center gap-2">
-                  <span className="px-2 py-0.5 rounded-full text-sm font-semibold bg-black/[0.04] text-[#1D1D1F]">
+                  <span className="px-2 py-0.5 rounded-full text-sm font-semibold bg-black/[0.04] text-[#202124]">
                     #{q.id}
                   </span>
                   <span className="text-sm text-[#333336] font-medium">
@@ -272,14 +272,14 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <span className="text-[#333336]">Ref: Unit {q.unitRef}</span>
-                  <span className="px-2.5 py-0.5 bg-[#0071E3]/10 text-[#0071E3] rounded-full text-sm font-medium">
+                  <span className="px-2.5 py-0.5 bg-[#4285F4]/10 text-[#4285F4] rounded-full text-sm font-medium">
                     {q.reminderRef}
                   </span>
                 </div>
               </div>
 
               {/* Prompt */}
-              <h3 className="text-sm sm:text-base font-medium text-[#1D1D1F] my-2 leading-relaxed">
+              <h3 className="text-sm sm:text-base font-medium text-[#202124] my-2 leading-relaxed">
                 {q.prompt}
               </h3>
 
@@ -297,16 +297,16 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
                       disabled={isSubmitted}
                       className={`p-3 rounded-xl text-left text-sm sm:text-base font-medium flex items-center gap-2.5 transition-all cursor-pointer ${
                         isThisCorrect
-                          ? 'bg-[#34C759] text-white font-semibold'
+                          ? 'bg-[#34A853] text-white font-semibold'
                           : isSelected && isWrong
-                          ? 'bg-[#FF3B30] text-white'
+                          ? 'bg-[#EA4335] text-white'
                           : isSelected
-                          ? 'bg-[#0071E3] text-white'
-                          : 'bg-[#F5F5F7] text-[#1D1D1F] hover:bg-black/[0.06]'
+                          ? 'bg-[#4285F4] text-white'
+                          : 'bg-[#F8F9FA] text-[#202124] hover:bg-black/[0.06]'
                       }`}
                     >
                       <span className={`w-5 h-5 rounded-full flex items-center justify-center text-sm font-semibold ${
-                        isSelected || isThisCorrect ? 'bg-white/20 text-white' : 'bg-black/[0.06] text-[#1D1D1F]'
+                        isSelected || isThisCorrect ? 'bg-white/20 text-white' : 'bg-black/[0.06] text-[#202124]'
                       }`}>
                         {opt.label}
                       </span>
@@ -322,12 +322,12 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
                   <div className="flex items-center justify-between text-sm">
                     <div className="flex items-center gap-1.5">
                       {isCorrect ? (
-                        <span className="flex items-center gap-1 text-[#34C759] font-medium">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#34C759]" /> Correct Answer
+                        <span className="flex items-center gap-1 text-[#34A853] font-medium">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#34A853]" /> Correct Answer
                         </span>
                       ) : (
-                        <span className="flex items-center gap-1 text-[#FF3B30] font-medium">
-                          <XCircle className="w-3.5 h-3.5 text-[#FF3B30]" /> Correct Answer: <strong className="text-[#1D1D1F] font-semibold">{q.correctAnswer}</strong>
+                        <span className="flex items-center gap-1 text-[#EA4335] font-medium">
+                          <XCircle className="w-3.5 h-3.5 text-[#EA4335]" /> Correct Answer: <strong className="text-[#202124] font-semibold">{q.correctAnswer}</strong>
                         </span>
                       )}
                     </div>
@@ -335,9 +335,9 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => toggleExplanation(q.id)}
-                        className="text-[#0071E3] hover:underline flex items-center gap-1 font-medium cursor-pointer"
+                        className="text-[#4285F4] hover:underline flex items-center gap-1 font-medium cursor-pointer"
                       >
-                        <Lightbulb className="w-3.5 h-3.5 text-[#FF9500]" />
+                        <Lightbulb className="w-3.5 h-3.5 text-[#FBBC05]" />
                         <span>{isExpanded ? "Hide Rule" : "Explanation"}</span>
                       </button>
 
@@ -354,12 +354,12 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
                   </div>
 
                   {isExpanded && (
-                    <div className="mt-2.5 p-3.5 bg-[#F5F5F7] rounded-xl text-sm text-[#1D1D1F] space-y-1.5 border border-black/[0.04]">
+                    <div className="mt-2.5 p-3.5 bg-[#F8F9FA] rounded-xl text-sm text-[#202124] space-y-1.5 border border-black/[0.04]">
                       <p className="leading-relaxed">
-                        <strong className="font-semibold text-[#1D1D1F]">Rule:</strong> {q.explanation}
+                        <strong className="font-semibold text-[#202124]">Rule:</strong> {q.explanation}
                       </p>
                       {languageMode === 'bilingual' && (
-                        <p className="text-[#0071E3] border-t border-black/[0.05] pt-1.5 myanmar-text font-normal">
+                        <p className="text-[#4285F4] border-t border-black/[0.05] pt-1.5 myanmar-text font-normal">
                           🇲🇲 {q.explanationBurmese}
                         </p>
                       )}

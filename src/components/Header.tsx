@@ -45,15 +45,15 @@ export const Header: React.FC<HeaderProps> = ({
           
           {/* Logo & Brand */}
           <div className="flex items-center gap-3 cursor-pointer select-none" onClick={() => onSelectTab('units')}>
-            <div className="w-8 h-8 sm:w-9 sm:h-9 bg-[#1D1D1F] rounded-xl flex items-center justify-center text-white font-bold text-sm sm:text-base shadow-[0_1px_4px_rgba(0,0,0,0.15)] transition-transform duration-200 active:scale-95">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 bg-[#202124] rounded-xl flex items-center justify-center text-white font-bold text-sm sm:text-base shadow-[0_1px_4px_rgba(0,0,0,0.15)] transition-transform duration-200 active:scale-95">
               G
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="text-sm sm:text-base font-semibold text-[#1D1D1F] tracking-tight">
+                <h1 className="text-sm sm:text-base font-bold google-text-gradient tracking-tight">
                   Advanced Grammar in Use
                 </h1>
-                <span className="text-sm px-2 py-0.5 rounded-full font-semibold bg-[#E8E8ED] text-[#1D1D1F] tracking-wide">
+                <span className="text-sm px-2 py-0.5 rounded-full font-semibold bg-[#E8E8ED] text-[#202124] tracking-wide">
                   C1 • C2
                 </span>
               </div>
@@ -72,12 +72,12 @@ export const Header: React.FC<HeaderProps> = ({
               placeholder="Search grammar rules, units..."
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
-              className="w-full pl-8 pr-7 py-1.5 text-sm bg-black/[0.04] text-[#1D1D1F] placeholder-[#86868B] rounded-full focus:outline-none focus:ring-2 focus:ring-[#0071E3] focus:bg-white transition-all"
+              className="w-full pl-8 pr-7 py-1.5 text-sm bg-black/[0.04] text-[#202124] placeholder-[#86868B] rounded-full focus:outline-none focus:ring-2 focus:ring-[#4285F4] focus:bg-white transition-all"
             />
             {searchQuery && (
               <button 
                 onClick={() => onSearchChange("")}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-sm text-[#333336] hover:text-[#1D1D1F]"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-sm text-[#333336] hover:text-[#202124]"
               >
                 ✕
               </button>
@@ -94,7 +94,7 @@ export const Header: React.FC<HeaderProps> = ({
               </span>
               <div className="w-16 h-1.5 bg-black/[0.08] rounded-full overflow-hidden">
                 <div 
-                  className="h-full bg-[#0071E3] rounded-full transition-all duration-300"
+                  className="h-full bg-[#4285F4] rounded-full transition-all duration-300"
                   style={{ width: `${progressPercent}%` }}
                 />
               </div>
@@ -110,7 +110,7 @@ export const Header: React.FC<HeaderProps> = ({
                 className={`apple-btn px-3 py-1.5 text-sm font-medium rounded-full cursor-pointer transition-all ${
                   currentTab === 'units'
                     ? 'apple-btn-blue'
-                    : 'text-[#1D1D1F] hover:bg-black/[0.05]'
+                    : 'text-[#202124] hover:bg-black/[0.05]'
                 }`}
               >
                 <BookOpen className="w-3.5 h-3.5" />
@@ -124,7 +124,7 @@ export const Header: React.FC<HeaderProps> = ({
                 className={`apple-btn px-3 py-1.5 text-sm font-medium rounded-full cursor-pointer transition-all ${
                   currentTab === 'study-planner'
                     ? 'apple-btn-blue'
-                    : 'text-[#1D1D1F] hover:bg-black/[0.05]'
+                    : 'text-[#202124] hover:bg-black/[0.05]'
                 }`}
               >
                 <GraduationCap className="w-3.5 h-3.5" />
@@ -138,7 +138,7 @@ export const Header: React.FC<HeaderProps> = ({
                 className={`apple-btn px-3 py-1.5 text-sm font-medium rounded-full cursor-pointer transition-all ${
                   currentTab === 'ai-tutor'
                     ? 'apple-btn-blue'
-                    : 'text-[#0071E3] bg-[#0071E3]/10 hover:bg-[#0071E3]/15'
+                    : 'text-[#4285F4] bg-[#4285F4]/10 hover:bg-[#4285F4]/15'
                 }`}
               >
                 <Sparkles className="w-3.5 h-3.5" />
@@ -150,7 +150,7 @@ export const Header: React.FC<HeaderProps> = ({
                 id="nav-btn-reminder"
                 onClick={onOpenReminderModal}
                 title="Open Grammar Reminder Reference (A1-M22)"
-                className="apple-btn px-2.5 py-1.5 text-sm font-medium text-[#1D1D1F] bg-black/[0.04] hover:bg-black/[0.08] rounded-full transition-all cursor-pointer"
+                className="apple-btn px-2.5 py-1.5 text-sm font-medium text-[#202124] bg-black/[0.04] hover:bg-black/[0.08] rounded-full transition-all cursor-pointer"
               >
                 <ListOrdered className="w-3.5 h-3.5 text-[#333336]" />
                 <span className="hidden xl:inline">A1–M22</span>
@@ -163,8 +163,8 @@ export const Header: React.FC<HeaderProps> = ({
                 title="Toggle Myanmar (Burmese) Explanations"
                 className={`apple-btn px-3 py-1.5 text-sm font-medium rounded-full transition-all cursor-pointer ${
                   languageMode === 'bilingual'
-                    ? 'bg-[#1D1D1F] text-white'
-                    : 'bg-black/[0.04] text-[#1D1D1F] hover:bg-black/[0.08]'
+                    ? 'bg-[#202124] text-white'
+                    : 'bg-black/[0.04] text-[#202124] hover:bg-black/[0.08]'
                 }`}
               >
                 <Languages className="w-3.5 h-3.5" />

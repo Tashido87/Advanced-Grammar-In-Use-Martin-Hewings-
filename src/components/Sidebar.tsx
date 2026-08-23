@@ -49,7 +49,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   });
 
   return (
-    <aside id="units-sidebar" className="w-full md:w-72 lg:w-80 flex-shrink-0 bg-[#FBFBFD] md:bg-[#F5F5F7] border-r border-black/[0.06] flex flex-col h-[calc(100vh-6.5rem)]">
+    <aside id="units-sidebar" className="w-full md:w-72 lg:w-80 flex-shrink-0 bg-[#FBFBFD] md:bg-[#F8F9FA] border-r border-black/[0.06] flex flex-col h-[calc(100vh-6.5rem)]">
       
       {/* Category Horizontal Filter Chips & Section Header */}
       <div className="p-3.5 border-b border-black/[0.05] flex flex-col gap-2">
@@ -68,7 +68,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             onClick={() => onSelectCategory(null)}
             className={`px-2.5 py-1 rounded-full text-sm font-medium whitespace-nowrap transition-all cursor-pointer ${
               filterCategory === null
-                ? 'bg-[#1D1D1F] text-white'
+                ? 'bg-[#202124] text-white'
                     : 'bg-black/[0.04] text-[#333336] hover:bg-black/[0.08]'
             }`}
           >
@@ -83,7 +83,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 onClick={() => onSelectCategory(cat.id)}
                 className={`px-2.5 py-1 rounded-full text-sm font-medium whitespace-nowrap transition-all cursor-pointer ${
                   isSelected
-                    ? 'bg-[#0071E3] text-white shadow-xs'
+                    ? 'bg-[#4285F4] text-white shadow-xs'
                     : 'bg-black/[0.04] text-[#333336] hover:bg-black/[0.08]'
                 }`}
               >
@@ -115,26 +115,26 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 onClick={() => onSelectUnit(unit.id)}
                 className={`group flex items-center justify-between gap-2.5 px-3 py-2.5 rounded-xl cursor-pointer transition-all duration-150 ${
                   isSelected
-                    ? 'bg-white text-[#1D1D1F] font-semibold shadow-[0_1px_4px_rgba(0,0,0,0.06)] border border-black/[0.04]'
-                    : 'text-[#1D1D1F] hover:bg-black/[0.04]'
+                    ? 'bg-white text-[#202124] font-semibold google-glow border border-transparent'
+                    : 'text-[#202124] hover:bg-black/[0.04]'
                 }`}
               >
                 <div className="flex items-center gap-2.5 min-w-0 flex-1">
                   
                   {/* Number Badge */}
                   <span className={`text-sm font-semibold flex-shrink-0 w-5 text-right ${
-                    isSelected ? 'text-[#0071E3]' : 'text-[#333336]'
+                    isSelected ? 'text-[#4285F4]' : 'text-[#333336]'
                   }`}>
                     {formattedNum}
                   </span>
 
                   <div className="min-w-0 flex-1">
-                    <span className={`text-sm truncate block font-medium ${isSelected ? 'text-[#1D1D1F] font-semibold' : 'text-[#1D1D1F]'}`}>
+                    <span className={`text-sm truncate block font-medium ${isSelected ? 'text-[#202124] font-semibold' : 'text-[#202124]'}`}>
                       {unit.title}
                     </span>
 
                     {languageMode === 'bilingual' && (
-                      <p className={`text-sm truncate mt-0.5 myanmar-text font-normal ${isSelected ? 'text-[#0071E3]' : 'text-[#333336]'}`}>
+                      <p className={`text-sm truncate mt-0.5 myanmar-text font-normal ${isSelected ? 'text-[#4285F4]' : 'text-[#333336]'}`}>
                         {unit.summaryBurmese}
                       </p>
                     )}
@@ -144,7 +144,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 {/* Status Indicator & Bookmark */}
                 <div className="flex items-center gap-1.5 flex-shrink-0">
                   {isCompleted && (
-                    <span className="w-2 h-2 rounded-full bg-[#34C759]" title="Mastered" />
+                    <span className="w-2 h-2 rounded-full bg-[#34A853]" title="Mastered" />
                   )}
 
                   <button
@@ -153,11 +153,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     title={isBookmarked ? "Remove bookmark" : "Bookmark this unit"}
                     className={`p-1 rounded-md transition-colors cursor-pointer ${
                       isBookmarked
-                        ? 'text-[#FF9500]'
+                        ? 'text-[#FBBC05]'
                         : 'text-[#333336]/40 hover:text-[#333336] opacity-0 group-hover:opacity-100'
                     }`}
                   >
-                    <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-[#FF9500] text-[#FF9500]' : ''}`} />
+                    <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-[#FBBC05] text-[#FBBC05]' : ''}`} />
                   </button>
                 </div>
 

@@ -111,7 +111,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F5F7] flex flex-col text-[#1D1D1F] font-sans selection:bg-[#0071E3] selection:text-white">
+    <div className="min-h-screen bg-[#F8F9FA] flex flex-col text-[#202124] font-sans selection:bg-[#4285F4] selection:text-white">
       
       {/* Top Main Navigation Header */}
       <Header
@@ -131,14 +131,14 @@ export default function App() {
       />
 
       {/* Apple Inset Segmented Sub-nav Bar */}
-      <div className="bg-[#F5F5F7] border-b border-black/[0.05] px-4 sm:px-6 py-2 flex items-center justify-between text-xs overflow-x-auto">
+      <div className="bg-[#F8F9FA] border-b border-black/[0.05] px-4 sm:px-6 py-2 flex items-center justify-between text-xs overflow-x-auto">
         <div className="flex items-center gap-1.5 min-w-max">
           
           {/* Mobile Sidebar toggle button */}
           {currentTab === 'units' && (
             <button
               onClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
-              className="md:hidden flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-black/[0.05] text-[#1D1D1F] font-medium hover:bg-black/[0.08] transition-colors cursor-pointer"
+              className="md:hidden flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-black/[0.05] text-[#202124] font-medium hover:bg-black/[0.08] transition-colors cursor-pointer"
             >
               {isMobileSidebarOpen ? <X className="w-3.5 h-3.5" /> : <Menu className="w-3.5 h-3.5" />}
               <span>Units List</span>
@@ -192,7 +192,7 @@ export default function App() {
                 currentTab === 'ai-tutor' ? 'active' : ''
               }`}
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#0071E3]" />
+              <Sparkles className="w-3.5 h-3.5 text-[#4285F4]" />
               <span>AI Explainer</span>
             </button>
           </div>
@@ -201,11 +201,11 @@ export default function App() {
         {/* Status Indicators */}
         <div className="hidden sm:flex items-center gap-3 text-[#6E6E73] font-medium flex-shrink-0 pl-4">
           <span className="flex items-center gap-1 text-[11px]">
-            <Bookmark className="w-3 h-3 text-[#FF9500] fill-[#FF9500]/30" />
+            <Bookmark className="w-3 h-3 text-[#FBBC05] fill-[#FBBC05]/30" />
             {bookmarkedUnits.length} Bookmarked
           </span>
-          <span className="flex items-center gap-1 text-[11px] text-[#1D1D1F] font-semibold">
-            <CheckCircle2 className="w-3 h-3 text-[#34C759]" />
+          <span className="flex items-center gap-1 text-[11px] text-[#202124] font-semibold">
+            <CheckCircle2 className="w-3 h-3 text-[#34A853]" />
             {completedUnits.length} Mastered
           </span>
         </div>
