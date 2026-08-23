@@ -39,51 +39,45 @@ export const Header: React.FC<HeaderProps> = ({
   const progressPercent = totalUnitsCount > 0 ? Math.round((completedCount / totalUnitsCount) * 100) : 0;
 
   return (
-    <header id="app-header" className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-2xs">
+    <header id="app-header" className="sticky top-0 z-40 apple-glass">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 gap-4">
+        <div className="flex items-center justify-between h-14 sm:h-16 gap-3">
           
           {/* Logo & Brand */}
           <div className="flex items-center gap-3 cursor-pointer select-none" onClick={() => onSelectTab('units')}>
-            <div className="w-9 h-9 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-xs ring-2 ring-blue-100">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 bg-[#1D1D1F] rounded-xl flex items-center justify-center text-white font-bold text-sm sm:text-base shadow-[0_1px_4px_rgba(0,0,0,0.15)] transition-transform duration-200 active:scale-95">
               G
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="text-base font-bold text-slate-900 tracking-tight">
+                <h1 className="text-sm sm:text-base font-semibold text-[#1D1D1F] tracking-tight">
                   Advanced Grammar in Use
                 </h1>
-                <span className="text-[10px] px-2 py-0.5 rounded font-bold bg-blue-50 text-blue-700 border border-blue-200 tracking-wide uppercase">
-                  B2 – C2
+                <span className="text-[10px] px-2 py-0.5 rounded-full font-semibold bg-[#E8E8ED] text-[#1D1D1F] tracking-wide">
+                  C1 • C2
                 </span>
               </div>
-              <div className="flex items-center gap-1.5 mt-0.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
-                <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
-                <span className="w-1.5 h-1.5 rounded-full bg-yellow-500"></span>
-                <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-                <p className="text-xs text-slate-500 font-medium tracking-wide uppercase hidden sm:block ml-1">
-                  Martin Hewings • Cambridge Edition
-                </p>
-              </div>
+              <p className="text-[11px] text-[#86868B] font-normal hidden sm:block">
+                Martin Hewings • Cambridge English
+              </p>
             </div>
           </div>
 
-          {/* Quick Search */}
+          {/* Apple Quick Search */}
           <div className="hidden md:flex items-center flex-1 max-w-xs relative">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+            <Search className="w-3.5 h-3.5 text-[#86868B] absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               id="header-search-input"
               type="text"
               placeholder="Search grammar rules, units..."
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
-              className="w-full pl-9 pr-8 py-1.5 text-xs sm:text-sm bg-slate-50 text-slate-800 placeholder-slate-400 border border-slate-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:bg-white transition-all"
+              className="w-full pl-8 pr-7 py-1.5 text-xs bg-black/[0.04] text-[#1D1D1F] placeholder-[#86868B] rounded-full focus:outline-none focus:ring-2 focus:ring-[#0071E3] focus:bg-white transition-all"
             />
             {searchQuery && (
               <button 
                 onClick={() => onSearchChange("")}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-slate-600"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-[#86868B] hover:text-[#1D1D1F]"
               >
                 ✕
               </button>
@@ -91,35 +85,35 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
 
           {/* Course Progress & Nav Controls */}
-          <div className="flex items-center gap-3 sm:gap-4">
+          <div className="flex items-center gap-2 sm:gap-3">
             
-            {/* Progress bar */}
-            <div className="hidden lg:flex flex-col items-end pr-2">
-              <span className="text-[10px] font-bold text-slate-400 tracking-widest uppercase mb-1">
-                COURSE PROGRESS ({completedCount}/{totalUnitsCount})
+            {/* Progress pill */}
+            <div className="hidden lg:flex items-center gap-2 px-3 py-1 bg-black/[0.03] rounded-full border border-black/[0.04]">
+              <span className="text-[11px] font-medium text-[#6E6E73]">
+                {completedCount}/{totalUnitsCount} Units
               </span>
-              <div className="w-32 h-2 bg-slate-100 rounded-full overflow-hidden border border-slate-200">
+              <div className="w-16 h-1.5 bg-black/[0.08] rounded-full overflow-hidden">
                 <div 
-                  className="h-full bg-blue-600 rounded-full transition-all duration-300"
+                  className="h-full bg-[#0071E3] rounded-full transition-all duration-300"
                   style={{ width: `${progressPercent}%` }}
                 />
               </div>
             </div>
 
-            {/* Primary Navigation Buttons */}
-            <nav className="flex items-center gap-1.5 sm:gap-2">
+            {/* Apple Segmented Controls / Nav */}
+            <nav className="flex items-center gap-1">
               
               {/* Units Tab */}
               <button
                 id="nav-btn-units"
                 onClick={() => onSelectTab('units')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+                className={`apple-btn px-3 py-1.5 text-xs font-medium rounded-full cursor-pointer transition-all ${
                   currentTab === 'units'
-                    ? 'bg-blue-600 text-white shadow-xs'
-                    : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                    ? 'apple-btn-blue'
+                    : 'text-[#1D1D1F] hover:bg-black/[0.05]'
                 }`}
               >
-                <BookOpen className="w-4 h-4" />
+                <BookOpen className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">Units</span>
               </button>
 
@@ -127,30 +121,27 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 id="nav-btn-study-planner"
                 onClick={() => onSelectTab('study-planner')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+                className={`apple-btn px-3 py-1.5 text-xs font-medium rounded-full cursor-pointer transition-all ${
                   currentTab === 'study-planner'
-                    ? 'bg-blue-600 text-white shadow-xs'
-                    : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                    ? 'apple-btn-blue'
+                    : 'text-[#1D1D1F] hover:bg-black/[0.05]'
                 }`}
               >
-                <GraduationCap className="w-4 h-4" />
-                <span className="hidden sm:inline">Study Planner</span>
-                <span className="text-[10px] uppercase tracking-wider px-1.5 py-0.2 bg-blue-100 text-blue-800 rounded font-bold">
-                  Test
-                </span>
+                <GraduationCap className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">Planner</span>
               </button>
 
               {/* AI Grammar Tutor */}
               <button
                 id="nav-btn-ai-tutor"
                 onClick={() => onSelectTab('ai-tutor')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+                className={`apple-btn px-3 py-1.5 text-xs font-medium rounded-full cursor-pointer transition-all ${
                   currentTab === 'ai-tutor'
-                    ? 'bg-blue-600 text-white shadow-xs'
-                    : 'text-slate-700 bg-slate-100 hover:bg-blue-50 hover:text-blue-700 transition-colors'
+                    ? 'apple-btn-blue'
+                    : 'text-[#0071E3] bg-[#0071E3]/10 hover:bg-[#0071E3]/15'
                 }`}
               >
-                <Sparkles className="w-4 h-4 text-blue-600" />
+                <Sparkles className="w-3.5 h-3.5" />
                 <span className="hidden md:inline">AI Tutor</span>
               </button>
 
@@ -159,10 +150,10 @@ export const Header: React.FC<HeaderProps> = ({
                 id="nav-btn-reminder"
                 onClick={onOpenReminderModal}
                 title="Open Grammar Reminder Reference (A1-M22)"
-                className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 shadow-2xs transition-all cursor-pointer"
+                className="apple-btn px-2.5 py-1.5 text-xs font-medium text-[#1D1D1F] bg-black/[0.04] hover:bg-black/[0.08] rounded-full transition-all cursor-pointer"
               >
-                <ListOrdered className="w-3.5 h-3.5 text-slate-600" />
-                <span className="hidden xl:inline">A1-M22</span>
+                <ListOrdered className="w-3.5 h-3.5 text-[#6E6E73]" />
+                <span className="hidden xl:inline">A1–M22</span>
               </button>
 
               {/* Language Toggle EN / မြန်မာ */}
@@ -170,13 +161,13 @@ export const Header: React.FC<HeaderProps> = ({
                 id="btn-language-toggle"
                 onClick={onToggleLanguage}
                 title="Toggle Myanmar (Burmese) Explanations"
-                className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all border cursor-pointer ${
+                className={`apple-btn px-3 py-1.5 text-xs font-medium rounded-full transition-all cursor-pointer ${
                   languageMode === 'bilingual'
-                    ? 'bg-blue-50 text-blue-900 border-blue-300 hover:bg-blue-100'
-                    : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
+                    ? 'bg-[#1D1D1F] text-white'
+                    : 'bg-black/[0.04] text-[#1D1D1F] hover:bg-black/[0.08]'
                 }`}
               >
-                <Languages className="w-3.5 h-3.5 text-blue-600" />
+                <Languages className="w-3.5 h-3.5" />
                 <span>{languageMode === 'bilingual' ? 'မြန်မာ + EN' : 'EN Only'}</span>
               </button>
 

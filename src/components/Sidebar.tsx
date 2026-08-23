@@ -49,27 +49,27 @@ export const Sidebar: React.FC<SidebarProps> = ({
   });
 
   return (
-    <aside id="units-sidebar" className="w-full md:w-72 lg:w-80 flex-shrink-0 bg-white border-r border-stone-200 flex flex-col h-[calc(100vh-6.5rem)]">
+    <aside id="units-sidebar" className="w-full md:w-72 lg:w-80 flex-shrink-0 bg-[#FBFBFD] md:bg-[#F5F5F7] border-r border-black/[0.06] flex flex-col h-[calc(100vh-6.5rem)]">
       
       {/* Category Horizontal Filter Chips & Section Header */}
-      <div className="p-4 border-b border-stone-100 flex flex-col gap-2.5">
-        <div className="flex items-center justify-between">
-          <h2 className="text-[11px] font-bold text-stone-400 tracking-widest uppercase">
-            Unit Chapters
+      <div className="p-3.5 border-b border-black/[0.05] flex flex-col gap-2">
+        <div className="flex items-center justify-between px-1">
+          <h2 className="text-[11px] font-semibold text-[#86868B] tracking-wider uppercase">
+            Units
           </h2>
-          <span className="text-xs font-semibold text-stone-400">
-            {filteredUnits.length} Units
+          <span className="text-[11px] font-medium text-[#86868B]">
+            {filteredUnits.length}
           </span>
         </div>
 
-        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1">
+        <div className="flex items-center gap-1 overflow-x-auto no-scrollbar pb-0.5">
           <button
             id="cat-filter-all"
             onClick={() => onSelectCategory(null)}
-            className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${
+            className={`px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-all cursor-pointer ${
               filterCategory === null
-                ? 'bg-stone-800 text-white shadow-2xs'
-                : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
+                ? 'bg-[#1D1D1F] text-white'
+                : 'bg-black/[0.04] text-[#6E6E73] hover:bg-black/[0.08]'
             }`}
           >
             All
@@ -83,8 +83,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 onClick={() => onSelectCategory(cat.id)}
                 className={`px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-all cursor-pointer ${
                   isSelected
-                    ? 'bg-blue-600 text-white shadow-2xs'
-                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                    ? 'bg-[#0071E3] text-white shadow-xs'
+                    : 'bg-black/[0.04] text-[#6E6E73] hover:bg-black/[0.08]'
                 }`}
               >
                 {cat.name}
@@ -95,9 +95,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </div>
 
       {/* Units List */}
-      <div className="flex-1 overflow-y-auto p-3 space-y-1">
+      <div className="flex-1 overflow-y-auto p-2 space-y-1">
         {filteredUnits.length === 0 ? (
-          <div className="p-8 text-center text-slate-400 text-sm">
+          <div className="p-8 text-center text-[#86868B] text-xs">
             No units match your filter.
           </div>
         ) : (
@@ -113,30 +113,28 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 key={unit.id}
                 id={`unit-list-item-${unit.id}`}
                 onClick={() => onSelectUnit(unit.id)}
-                className={`group flex items-center justify-between gap-3 p-3 rounded-lg cursor-pointer transition-all ${
+                className={`group flex items-center justify-between gap-2.5 px-3 py-2.5 rounded-xl cursor-pointer transition-all duration-150 ${
                   isSelected
-                    ? 'bg-blue-50/90 text-blue-900 font-semibold border-l-4 border-blue-600 shadow-2xs'
-                    : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                    ? 'bg-white text-[#1D1D1F] font-semibold shadow-[0_1px_4px_rgba(0,0,0,0.06)] border border-black/[0.04]'
+                    : 'text-[#1D1D1F] hover:bg-black/[0.04]'
                 }`}
               >
-                <div className="flex items-center gap-3 min-w-0 flex-1">
+                <div className="flex items-center gap-2.5 min-w-0 flex-1">
                   
                   {/* Number Badge */}
-                  <span className={`text-sm italic font-bold flex-shrink-0 ${
-                    isSelected ? 'opacity-100 text-blue-600' : 'opacity-40 text-slate-400'
+                  <span className={`text-xs font-semibold flex-shrink-0 w-5 text-right ${
+                    isSelected ? 'text-[#0071E3]' : 'text-[#86868B]'
                   }`}>
                     {formattedNum}
                   </span>
 
                   <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-1.5">
-                      <span className={`text-xs truncate font-medium ${isSelected ? 'text-blue-950 font-bold' : 'text-slate-800'}`}>
-                        {unit.title}
-                      </span>
-                    </div>
+                    <span className={`text-xs truncate block font-medium ${isSelected ? 'text-[#1D1D1F] font-semibold' : 'text-[#1D1D1F]'}`}>
+                      {unit.title}
+                    </span>
 
                     {languageMode === 'bilingual' && (
-                      <p className={`text-[11px] truncate mt-0.5 font-normal ${isSelected ? 'text-blue-700' : 'text-slate-500'}`}>
+                      <p className={`text-[11px] truncate mt-0.5 myanmar-text font-normal ${isSelected ? 'text-[#0071E3]' : 'text-[#86868B]'}`}>
                         {unit.summaryBurmese}
                       </p>
                     )}
@@ -146,20 +144,20 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 {/* Status Indicator & Bookmark */}
                 <div className="flex items-center gap-1.5 flex-shrink-0">
                   {isCompleted && (
-                    <span className="w-2 h-2 rounded-full bg-green-500 ring-2 ring-green-100" title="Mastered" />
+                    <span className="w-2 h-2 rounded-full bg-[#34C759]" title="Mastered" />
                   )}
 
                   <button
                     id={`bookmark-btn-${unit.id}`}
                     onClick={(e) => onToggleBookmark(unit.id, e)}
                     title={isBookmarked ? "Remove bookmark" : "Bookmark this unit"}
-                    className={`p-1 rounded transition-colors cursor-pointer ${
+                    className={`p-1 rounded-md transition-colors cursor-pointer ${
                       isBookmarked
-                        ? 'text-amber-500 hover:text-amber-600'
-                        : 'text-slate-300 hover:text-slate-500 opacity-0 group-hover:opacity-100'
+                        ? 'text-[#FF9500]'
+                        : 'text-[#86868B]/40 hover:text-[#86868B] opacity-0 group-hover:opacity-100'
                     }`}
                   >
-                    <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-amber-500 text-amber-500' : ''}`} />
+                    <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-[#FF9500] text-[#FF9500]' : ''}`} />
                   </button>
                 </div>
 

@@ -22,30 +22,30 @@ export const GlossaryView: React.FC<GlossaryViewProps> = ({
   );
 
   return (
-    <div id="glossary-view" className="flex-1 overflow-y-auto bg-[#F8F9FA] p-4 sm:p-6 lg:p-8 space-y-6">
+    <div id="glossary-view" className="flex-1 overflow-y-auto bg-[#F5F5F7] p-4 sm:p-6 lg:p-8 space-y-6 max-w-5xl mx-auto w-full">
       
       {/* Header */}
-      <div className="bg-white border border-slate-200 rounded-xl p-6 sm:p-7 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="apple-card p-6 sm:p-7 flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <span className="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-full border border-blue-200">
+          <span className="inline-block px-2.5 py-0.5 bg-black/[0.04] text-[#1D1D1F] text-[11px] font-semibold rounded-full">
             GLOSSARY REFERENCE
           </span>
-          <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-2 tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-semibold text-[#1D1D1F] mt-2 tracking-tight">
             Grammar Terms Glossary
           </h1>
-          <p className="text-xs sm:text-sm text-slate-600 mt-1">
+          <p className="text-xs sm:text-sm text-[#6E6E73] mt-1">
             Key grammatical terms explained concisely with real contextual examples and Burmese definitions.
           </p>
         </div>
 
         <div className="relative w-full md:w-80">
-          <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+          <Search className="w-3.5 h-3.5 text-[#86868B] absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
             type="text"
-            placeholder="Search grammar term (e.g. Cleft, Inversion)..."
+            placeholder="Search grammar term..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 text-xs sm:text-sm bg-white border border-slate-300 rounded-lg focus:outline-none focus:border-blue-600 text-slate-900 shadow-2xs"
+            className="w-full pl-9 pr-4 py-2 text-xs sm:text-sm bg-white border border-black/[0.1] rounded-full focus:outline-none focus:ring-2 focus:ring-[#0071E3] text-[#1D1D1F]"
           />
         </div>
       </div>
@@ -55,34 +55,35 @@ export const GlossaryView: React.FC<GlossaryViewProps> = ({
         {filteredTerms.map((t, idx) => (
           <div
             key={idx}
-            className="bg-white border border-slate-200 rounded-xl p-5 sm:p-6 shadow-xs space-y-3"
+            className="apple-card p-5 sm:p-6 space-y-3"
           >
             <div className="flex items-start justify-between gap-2">
-              <h3 className="font-bold text-base text-slate-900">
+              <h3 className="font-semibold text-base text-[#1D1D1F]">
                 {t.term}
               </h3>
               {t.relatedUnits && (
-                <span className="text-[11px] font-semibold text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200">
+                <span className="text-[11px] font-medium text-[#0071E3] bg-[#0071E3]/10 px-2.5 py-0.5 rounded-full">
                   Units {t.relatedUnits}
                 </span>
               )}
             </div>
 
-            <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#1D1D1F] leading-relaxed">
               {t.definition}
             </p>
 
             {languageMode === 'bilingual' && (
-              <div className="p-3 bg-blue-50/70 rounded-lg border border-blue-200/80 text-xs text-blue-950 font-medium leading-relaxed">
-                🇲🇲 {t.definitionBurmese}
+              <div className="apple-burmese-box myanmar-text text-xs">
+                <span className="font-semibold text-[#0071E3] mr-1">🇲🇲</span>
+                {t.definitionBurmese}
               </div>
             )}
 
-            <div className="p-3 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between gap-2 text-xs text-slate-800">
-              <span className="italic font-medium">Example: {t.example}</span>
+            <div className="p-3 bg-[#F5F5F7] rounded-xl flex items-center justify-between gap-2 text-xs text-[#1D1D1F] border border-black/[0.04]">
+              <span className="italic font-normal">Example: {t.example}</span>
               <button
                 onClick={() => speakText(t.example)}
-                className="p-1 text-slate-400 hover:text-blue-600 transition-colors flex-shrink-0 cursor-pointer"
+                className="p-1 rounded-full text-[#86868B] hover:text-[#0071E3] hover:bg-black/[0.05] transition-colors flex-shrink-0 cursor-pointer"
                 title="Pronounce"
               >
                 <Volume2 className="w-3.5 h-3.5" />
