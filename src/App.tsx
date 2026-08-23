@@ -197,7 +197,7 @@ export default function App() {
                 : 'text-stone-700 hover:text-stone-900 hover:bg-stone-100'
             }`}
           >
-            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+            <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
             <span>Ask AI Explainer</span>
           </button>
         </div>
@@ -205,11 +205,11 @@ export default function App() {
         {/* Bookmarked Filter shortcut */}
         <div className="hidden sm:flex items-center gap-4 text-stone-500 font-medium flex-shrink-0 pl-4">
           <span className="flex items-center gap-1.5">
-            <Bookmark className="w-3.5 h-3.5 text-amber-600 fill-amber-500/20" />
+            <Bookmark className="w-3.5 h-3.5 text-emerald-700 fill-emerald-500/20" />
             {bookmarkedUnits.length} Bookmarked
           </span>
           <span className="flex items-center gap-1.5 text-stone-700 font-semibold">
-            <CheckCircle2 className="w-3.5 h-3.5 text-stone-600" />
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" />
             {completedUnits.length} Mastered
           </span>
         </div>

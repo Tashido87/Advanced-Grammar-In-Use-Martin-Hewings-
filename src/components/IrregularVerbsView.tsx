@@ -77,7 +77,7 @@ export const IrregularVerbsView: React.FC<IrregularVerbsViewProps> = ({
                     {v.pastParticiple}
                   </td>
                   {languageMode === 'bilingual' && (
-                    <td className="p-4 sm:px-6 text-amber-900 font-medium">
+                    <td className="p-4 sm:px-6 text-emerald-950 font-medium">
                       {v.burmeseMeaning}
                     </td>
                   )}

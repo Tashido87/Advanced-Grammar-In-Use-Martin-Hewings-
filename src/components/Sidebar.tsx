@@ -115,7 +115,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 onClick={() => onSelectUnit(unit.id)}
                 className={`group flex items-center justify-between gap-3 p-3 rounded-lg cursor-pointer transition-all ${
                   isSelected
-                    ? 'bg-stone-100 text-stone-900 font-semibold border-l-3 border-stone-800 shadow-2xs'
+                    ? 'bg-emerald-50/70 text-emerald-950 font-semibold border-l-3 border-emerald-700 shadow-2xs'
                     : 'text-stone-600 hover:bg-stone-50 hover:text-stone-900'
                 }`}
               >
@@ -123,7 +123,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   
                   {/* Number Badge */}
                   <span className={`text-sm italic font-bold flex-shrink-0 ${
-                    isSelected ? 'opacity-90 text-stone-900' : 'opacity-40 text-stone-400'
+                    isSelected ? 'opacity-90 text-emerald-800' : 'opacity-40 text-stone-400'
                   }`}>
                     {formattedNum}
                   </span>
@@ -136,7 +136,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     </div>
 
                     {languageMode === 'bilingual' && (
-                      <p className="text-[11px] text-amber-800 truncate mt-0.5 font-normal">
+                      <p className="text-[11px] text-emerald-800 truncate mt-0.5 font-normal">
                         {unit.summaryBurmese}
                       </p>
                     )}
@@ -146,16 +146,16 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 {/* Status Indicator & Bookmark */}
                 <div className="flex items-center gap-1.5 flex-shrink-0">
                   {isCompleted && (
-                    <span className="w-2 h-2 rounded-full bg-stone-600" title="Mastered" />
+                    <span className="w-2 h-2 rounded-full bg-emerald-600" title="Mastered" />
                   )}
 
                   <button
                     id={`bookmark-btn-${unit.id}`}
                     onClick={(e) => onToggleBookmark(unit.id, e)}
                     title={isBookmarked ? "Remove bookmark" : "Bookmark this unit"}
-                    className={`p-1 rounded transition-colors ${
+                    className={`p-1 rounded transition-colors cursor-pointer ${
                       isBookmarked
-                        ? 'text-amber-600 hover:text-amber-700'
+                        ? 'text-emerald-700 hover:text-emerald-800'
                         : 'text-stone-300 hover:text-stone-500 opacity-0 group-hover:opacity-100'
                     }`}
                   >

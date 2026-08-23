@@ -94,7 +94,7 @@ export const Header: React.FC<HeaderProps> = ({
               </span>
               <div className="w-32 h-2 bg-stone-100 rounded-full overflow-hidden border border-stone-200">
                 <div 
-                  className="h-full bg-stone-800 rounded-full transition-all duration-300"
+                  className="h-full bg-emerald-700 rounded-full transition-all duration-300"
                   style={{ width: `${progressPercent}%` }}
                 />
               </div>
@@ -107,7 +107,7 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 id="nav-btn-units"
                 onClick={() => onSelectTab('units')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                   currentTab === 'units'
                     ? 'bg-stone-800 text-white shadow-xs'
                     : 'text-stone-600 hover:bg-stone-100 hover:text-stone-900'
@@ -121,7 +121,7 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 id="nav-btn-study-planner"
                 onClick={() => onSelectTab('study-planner')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                   currentTab === 'study-planner'
                     ? 'bg-stone-800 text-white shadow-xs'
                     : 'text-stone-600 hover:bg-stone-100 hover:text-stone-900'
@@ -138,13 +138,13 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 id="nav-btn-ai-tutor"
                 onClick={() => onSelectTab('ai-tutor')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                   currentTab === 'ai-tutor'
                     ? 'bg-stone-800 text-white shadow-xs'
                     : 'text-stone-700 bg-stone-100 hover:bg-stone-200 transition-colors'
                 }`}
               >
-                <Sparkles className="w-4 h-4 text-stone-500" />
+                <Sparkles className="w-4 h-4 text-emerald-700" />
                 <span className="hidden md:inline">AI Tutor</span>
               </button>
 
@@ -153,7 +153,7 @@ export const Header: React.FC<HeaderProps> = ({
                 id="nav-btn-reminder"
                 onClick={onOpenReminderModal}
                 title="Open Grammar Reminder Reference (A1-M22)"
-                className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-stone-700 bg-white hover:bg-stone-50 border border-stone-200 shadow-2xs transition-all"
+                className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-stone-700 bg-white hover:bg-stone-50 border border-stone-200 shadow-2xs transition-all cursor-pointer"
               >
                 <ListOrdered className="w-3.5 h-3.5 text-stone-600" />
                 <span className="hidden xl:inline">A1-M22</span>
@@ -164,13 +164,13 @@ export const Header: React.FC<HeaderProps> = ({
                 id="btn-language-toggle"
                 onClick={onToggleLanguage}
                 title="Toggle Myanmar (Burmese) Explanations"
-                className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all border ${
+                className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all border cursor-pointer ${
                   languageMode === 'bilingual'
-                    ? 'bg-amber-50 text-amber-900 border-amber-300 hover:bg-amber-100'
+                    ? 'bg-emerald-50 text-emerald-950 border-emerald-300 hover:bg-emerald-100'
                     : 'bg-stone-50 text-stone-600 border-stone-200 hover:bg-stone-100'
                 }`}
               >
-                <Languages className="w-3.5 h-3.5 text-amber-700" />
+                <Languages className="w-3.5 h-3.5 text-emerald-700" />
                 <span>{languageMode === 'bilingual' ? 'မြန်မာ + EN' : 'EN Only'}</span>
               </button>
 

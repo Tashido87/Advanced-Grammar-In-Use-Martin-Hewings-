@@ -132,7 +132,7 @@ export const GrammarReminderModal: React.FC<GrammarReminderModalProps> = ({
                 </p>
 
                 {languageMode === 'bilingual' && (
-                  <p className="text-xs text-amber-900 bg-amber-50 p-2.5 rounded-lg border border-amber-200/80 font-medium leading-relaxed">
+                  <p className="text-xs text-emerald-950 bg-emerald-50/80 p-2.5 rounded-lg border border-emerald-200/80 font-medium leading-relaxed">
                     🇲🇲 {item.ruleBurmese}
                   </p>
                 )}

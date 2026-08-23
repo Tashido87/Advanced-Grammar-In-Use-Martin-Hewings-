@@ -73,7 +73,7 @@ export const GlossaryView: React.FC<GlossaryViewProps> = ({
             </p>
 
             {languageMode === 'bilingual' && (
-              <div className="p-3 bg-amber-50 rounded-lg border border-amber-200/80 text-xs text-amber-900 font-medium leading-relaxed">
+              <div className="p-3 bg-emerald-50/80 rounded-lg border border-emerald-200/80 text-xs text-emerald-950 font-medium leading-relaxed">
                 🇲🇲 {t.definitionBurmese}
               </div>
             )}

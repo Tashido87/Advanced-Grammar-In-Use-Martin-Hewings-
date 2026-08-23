@@ -113,7 +113,7 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
             {exercise.instruction}
           </p>
           {languageMode === 'bilingual' && exercise.instructionBurmese && (
-            <p className="text-xs text-amber-900 mt-1 font-medium bg-amber-50/60 p-2 rounded border border-amber-200/70 inline-block">
+            <p className="text-xs text-emerald-900 mt-1 font-medium bg-emerald-50/70 p-2 rounded border border-emerald-200/70 inline-block">
               👉 {exercise.instructionBurmese}
             </p>
           )}
@@ -279,7 +279,7 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
                         onClick={() => toggleExplanation(q.id)}
                         className="ml-auto text-xs text-stone-700 hover:text-stone-900 flex items-center gap-1 font-semibold underline"
                       >
-                        <Lightbulb className="w-3.5 h-3.5 text-amber-600" />
+                        <Lightbulb className="w-3.5 h-3.5 text-emerald-700" />
                         <span>{isExpanded ? "Hide Rule" : "Why is this right?"}</span>
                         {isExpanded ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
                       </button>
@@ -300,7 +300,7 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
                         💡 <strong>Grammar Rule:</strong> {q.explanation}
                       </p>
                       {languageMode === 'bilingual' && q.explanationBurmese && (
-                        <p className="text-amber-950 pt-1.5 border-t border-stone-200 font-medium">
+                        <p className="text-emerald-950 pt-1.5 border-t border-stone-200 font-medium">
                           🇲🇲 <strong>မြန်မာဘာသာ ရှင်းလင်းချက်:</strong> {q.explanationBurmese}
                         </p>
                       )}
@@ -310,7 +310,7 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
                             onClick={() => onAskAI(`Explain why the answer for this sentence is "${primaryCorrectAnswer}": "${q.prompt}"`, q.explanation)}
                             className="inline-flex items-center gap-1 text-[11px] font-bold text-stone-700 hover:text-stone-900 underline"
                           >
-                            <Sparkles className="w-3 h-3 text-stone-600" />
+                            <Sparkles className="w-3 h-3 text-emerald-700" />
                             Ask AI Tutor for deeper explanation
                           </button>
                         </div>
@@ -327,10 +327,10 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
 
       {/* Score Summary & Tip Banner */}
       <div className="space-y-3 pt-2">
-        <div className="p-4 bg-amber-50/70 border border-amber-200/80 rounded-lg flex items-start gap-2.5 text-xs text-amber-950">
-          <Lightbulb className="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5" />
+        <div className="p-4 bg-emerald-50/80 border border-emerald-200/90 rounded-lg flex items-start gap-2.5 text-xs text-emerald-950">
+          <Lightbulb className="w-4 h-4 text-emerald-700 flex-shrink-0 mt-0.5" />
           <p className="leading-relaxed">
-            <strong>Exam & Usage Tip:</strong> Cambridge Advanced tests precise aspect, modal nuance, and inversion. Review the grammar rules above and exercise answer explanations to cement your understanding.
+            <strong>Exam & Usage Tip:</strong> Cambridge Advanced tests precise aspect, modal nuance, and inversion. Review the grammar rules and exercise answer explanations to cement your understanding.
           </p>
         </div>
 
