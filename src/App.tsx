@@ -56,6 +56,10 @@ export default function App() {
   });
 
   useEffect(() => {
+    document.title = "Advanced Grammar in Use";
+  }, []);
+
+  useEffect(() => {
     try {
       localStorage.setItem("ag_completed_units", JSON.stringify(completedUnits));
     } catch {}
