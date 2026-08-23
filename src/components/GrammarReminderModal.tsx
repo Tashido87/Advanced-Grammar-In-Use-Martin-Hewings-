@@ -51,21 +51,21 @@ export const GrammarReminderModal: React.FC<GrammarReminderModalProps> = ({
         <div className="p-4 sm:p-5 border-b border-black/[0.05] flex items-center justify-between gap-3 bg-white">
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-black/[0.04] text-[#1D1D1F]">
+              <span className="inline-block px-2.5 py-0.5 rounded-full text-sm font-semibold bg-black/[0.04] text-[#1D1D1F]">
                 A1 – M22 Reference
               </span>
               <h2 className="text-base sm:text-lg font-semibold text-[#1D1D1F]">
                 Grammar Reminder
               </h2>
             </div>
-            <p className="text-xs text-[#6E6E73] mt-0.5">
+            <p className="text-sm text-[#333336] mt-0.5">
               Quick core rule reminders referenced in Cambridge units and diagnostic study planner
             </p>
           </div>
           <button
             id="close-reminder-modal-btn"
             onClick={onClose}
-            className="w-7 h-7 rounded-full bg-black/[0.05] hover:bg-black/[0.1] flex items-center justify-center text-[#6E6E73] transition-colors cursor-pointer"
+            className="w-7 h-7 rounded-full bg-black/[0.05] hover:bg-black/[0.1] flex items-center justify-center text-[#333336] transition-colors cursor-pointer"
           >
             <X className="w-4 h-4" />
           </button>
@@ -74,19 +74,19 @@ export const GrammarReminderModal: React.FC<GrammarReminderModalProps> = ({
         {/* Filter Bar */}
         <div className="p-3 border-b border-black/[0.05] bg-[#F5F5F7] flex flex-col sm:flex-row items-center gap-2.5">
           <div className="relative flex-1 w-full">
-            <Search className="w-3.5 h-3.5 text-[#86868B] absolute left-3.5 top-1/2 -translate-y-1/2" />
+            <Search className="w-3.5 h-3.5 text-[#333336] absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               placeholder="Search reminder code (e.g. A1, C5), rule, topic..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-9 pr-4 py-1.5 text-xs sm:text-sm bg-white border border-black/[0.1] rounded-full focus:outline-none focus:ring-2 focus:ring-[#0071E3] text-[#1D1D1F]"
+              className="w-full pl-9 pr-4 py-1.5 text-sm sm:text-base bg-white border border-black/[0.1] rounded-full focus:outline-none focus:ring-2 focus:ring-[#0071E3] text-[#1D1D1F]"
             />
           </div>
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="w-full sm:w-auto px-3 py-1.5 text-xs bg-white border border-black/[0.1] rounded-full text-[#1D1D1F] focus:outline-none focus:ring-2 focus:ring-[#0071E3]"
+            className="w-full sm:w-auto px-3 py-1.5 text-sm bg-white border border-black/[0.1] rounded-full text-[#1D1D1F] focus:outline-none focus:ring-2 focus:ring-[#0071E3]"
           >
             <option value="all">All Categories</option>
             {categories.map(c => (
@@ -98,7 +98,7 @@ export const GrammarReminderModal: React.FC<GrammarReminderModalProps> = ({
         {/* Items List */}
         <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-3 divide-y divide-black/[0.04]">
           {filteredItems.length === 0 ? (
-            <div className="text-center py-10 text-[#86868B] text-sm">
+            <div className="text-center py-10 text-[#333336] text-sm">
               No grammar reminder cards matched your search.
             </div>
           ) : (
@@ -106,44 +106,44 @@ export const GrammarReminderModal: React.FC<GrammarReminderModalProps> = ({
               <div key={item.code} className="pt-3.5 first:pt-0 space-y-2.5">
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2.5">
-                    <span className="w-7 h-7 rounded-full bg-[#1D1D1F] text-white font-semibold text-xs flex items-center justify-center">
+                    <span className="w-7 h-7 rounded-full bg-[#1D1D1F] text-white font-semibold text-sm flex items-center justify-center">
                       {item.code}
                     </span>
                     <div>
                       <h4 className="font-semibold text-sm text-[#1D1D1F]">
                         {item.title}
                       </h4>
-                      <span className="text-[11px] font-medium text-[#86868B]">
+                      <span className="text-sm font-medium text-[#333336]">
                         {item.category}
                       </span>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-1.5 text-xs">
-                    <span className="text-[#86868B]">Units:</span>
+                  <div className="flex items-center gap-1.5 text-sm">
+                    <span className="text-[#333336]">Units:</span>
                     <span className="font-semibold text-[#0071E3]">
                       {item.relatedUnits}
                     </span>
                   </div>
                 </div>
 
-                <p className="text-xs sm:text-sm text-[#1D1D1F] leading-relaxed">
+                <p className="text-sm sm:text-base text-[#1D1D1F] leading-relaxed">
                   {item.rule}
                 </p>
 
                 {languageMode === 'bilingual' && (
-                  <div className="apple-burmese-box myanmar-text text-xs">
+                  <div className="apple-burmese-box myanmar-text text-sm">
                     <span className="font-semibold text-[#0071E3] mr-1">🇲🇲</span>
                     {item.ruleBurmese}
                   </div>
                 )}
 
-                <div className="flex items-center justify-between p-3 bg-[#F5F5F7] rounded-xl text-xs text-[#1D1D1F] border border-black/[0.04]">
+                <div className="flex items-center justify-between p-3 bg-[#F5F5F7] rounded-xl text-sm text-[#1D1D1F] border border-black/[0.04]">
                   <span className="font-normal italic">Example: {item.example}</span>
                   <button
                     onClick={() => speakText(item.example)}
                     title="Listen to audio"
-                    className="p-1 rounded-full text-[#86868B] hover:text-[#0071E3] hover:bg-black/[0.05] transition-colors cursor-pointer"
+                    className="p-1 rounded-full text-[#333336] hover:text-[#0071E3] hover:bg-black/[0.05] transition-colors cursor-pointer"
                   >
                     <Volume2 className="w-3.5 h-3.5" />
                   </button>
@@ -157,7 +157,7 @@ export const GrammarReminderModal: React.FC<GrammarReminderModalProps> = ({
         <div className="p-3.5 bg-[#F5F5F7] border-t border-black/[0.05] flex justify-end">
           <button
             onClick={onClose}
-            className="apple-btn apple-btn-secondary px-5 py-1.5 text-xs font-medium cursor-pointer"
+            className="apple-btn apple-btn-secondary px-5 py-1.5 text-sm font-medium cursor-pointer"
           >
             Close Reference
           </button>

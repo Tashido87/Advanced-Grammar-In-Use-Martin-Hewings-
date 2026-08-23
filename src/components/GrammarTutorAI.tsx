@@ -122,7 +122,7 @@ export const GrammarTutorAI: React.FC<GrammarTutorAIProps> = ({
             <h2 className="font-semibold text-[#1D1D1F] text-base flex items-center gap-2">
               Advanced Grammar AI Explainer
             </h2>
-            <p className="text-xs text-[#6E6E73]">
+            <p className="text-xs text-[#333336]">
               Grounded in Cambridge Advanced Grammar in Use • Martin Hewings
             </p>
           </div>
@@ -168,7 +168,7 @@ export const GrammarTutorAI: React.FC<GrammarTutorAIProps> = ({
             <div className="w-7 h-7 rounded-full bg-[#0071E3]/10 text-[#0071E3] flex items-center justify-center">
               <Bot className="w-3.5 h-3.5" />
             </div>
-            <div className="p-3.5 bg-[#F5F5F7] rounded-2xl border border-black/[0.04] text-xs text-[#6E6E73] flex items-center gap-2">
+            <div className="p-3.5 bg-[#F5F5F7] rounded-2xl border border-black/[0.04] text-xs text-[#333336] flex items-center gap-2">
               <RefreshCw className="w-3.5 h-3.5 animate-spin text-[#0071E3]" />
               <span>Analyzing grammar rules & structuring explanation...</span>
             </div>
@@ -178,7 +178,7 @@ export const GrammarTutorAI: React.FC<GrammarTutorAIProps> = ({
 
       {/* Suggested Quick Questions */}
       <div className="mt-3 flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar">
-        <span className="text-xs font-medium text-[#86868B] flex items-center gap-1 pl-1 flex-shrink-0">
+        <span className="text-xs font-medium text-[#333336] flex items-center gap-1 pl-1 flex-shrink-0">
           <Lightbulb className="w-3.5 h-3.5 text-[#FF9500]" />
           <span>Quick Ask:</span>
         </span>

@@ -26,25 +26,25 @@ export const IrregularVerbsView: React.FC<IrregularVerbsViewProps> = ({
       {/* Header */}
       <div className="apple-card p-6 sm:p-7 flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <span className="inline-block px-2.5 py-0.5 bg-black/[0.04] text-[#1D1D1F] text-[11px] font-semibold rounded-full">
+          <span className="inline-block px-2.5 py-0.5 bg-black/[0.04] text-[#1D1D1F] text-sm font-semibold rounded-full">
             APPENDIX 1
           </span>
           <h1 className="text-2xl sm:text-3xl font-semibold text-[#1D1D1F] mt-2 tracking-tight">
             Irregular Verbs Reference
           </h1>
-          <p className="text-xs sm:text-sm text-[#6E6E73] mt-1">
+          <p className="text-sm sm:text-base text-[#333336] mt-1">
             Complete Cambridge past simple and past participle reference with audio and Burmese definitions.
           </p>
         </div>
 
         <div className="relative w-full md:w-80">
-          <Search className="w-3.5 h-3.5 text-[#86868B] absolute left-3.5 top-1/2 -translate-y-1/2" />
+          <Search className="w-3.5 h-3.5 text-[#333336] absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             placeholder="Search verb (e.g. choose, broke)..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 text-xs sm:text-sm bg-white border border-black/[0.1] rounded-full focus:outline-none focus:ring-2 focus:ring-[#0071E3] text-[#1D1D1F]"
+            className="w-full pl-9 pr-4 py-2 text-sm sm:text-base bg-white border border-black/[0.1] rounded-full focus:outline-none focus:ring-2 focus:ring-[#0071E3] text-[#1D1D1F]"
           />
         </div>
       </div>
@@ -52,8 +52,8 @@ export const IrregularVerbsView: React.FC<IrregularVerbsViewProps> = ({
       {/* Verbs Table */}
       <div className="apple-card overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs sm:text-sm">
-            <thead className="bg-[#F5F5F7] text-[#86868B] font-semibold border-b border-black/[0.05]">
+          <table className="w-full text-left text-sm sm:text-base">
+            <thead className="bg-[#F5F5F7] text-[#333336] font-semibold border-b border-black/[0.05]">
               <tr>
                 <th className="p-4 sm:px-6">Base Form (Infinitive)</th>
                 <th className="p-4 sm:px-6">Past Simple (V2)</th>
@@ -84,7 +84,7 @@ export const IrregularVerbsView: React.FC<IrregularVerbsViewProps> = ({
                   <td className="p-4 sm:px-6 text-right">
                     <button
                       onClick={() => speakText(`${v.infinitive}, ${v.pastSimple}, ${v.pastParticiple}`)}
-                      className="p-1.5 rounded-full text-[#86868B] hover:text-[#0071E3] hover:bg-black/[0.05] transition-colors inline-flex items-center cursor-pointer"
+                      className="p-1.5 rounded-full text-[#333336] hover:text-[#0071E3] hover:bg-black/[0.05] transition-colors inline-flex items-center cursor-pointer"
                       title="Pronounce"
                     >
                       <Volume2 className="w-3.5 h-3.5" />

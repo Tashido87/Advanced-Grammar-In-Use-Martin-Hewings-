@@ -54,10 +54,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Category Horizontal Filter Chips & Section Header */}
       <div className="p-3.5 border-b border-black/[0.05] flex flex-col gap-2">
         <div className="flex items-center justify-between px-1">
-          <h2 className="text-[11px] font-semibold text-[#86868B] tracking-wider uppercase">
+          <h2 className="text-sm font-semibold text-[#333336] tracking-wider uppercase">
             Units
           </h2>
-          <span className="text-[11px] font-medium text-[#86868B]">
+          <span className="text-sm font-medium text-[#333336]">
             {filteredUnits.length}
           </span>
         </div>
@@ -66,10 +66,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <button
             id="cat-filter-all"
             onClick={() => onSelectCategory(null)}
-            className={`px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-all cursor-pointer ${
+            className={`px-2.5 py-1 rounded-full text-sm font-medium whitespace-nowrap transition-all cursor-pointer ${
               filterCategory === null
                 ? 'bg-[#1D1D1F] text-white'
-                : 'bg-black/[0.04] text-[#6E6E73] hover:bg-black/[0.08]'
+                    : 'bg-black/[0.04] text-[#333336] hover:bg-black/[0.08]'
             }`}
           >
             All
@@ -81,10 +81,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 key={cat.id}
                 id={`cat-filter-${cat.id}`}
                 onClick={() => onSelectCategory(cat.id)}
-                className={`px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-all cursor-pointer ${
+                className={`px-2.5 py-1 rounded-full text-sm font-medium whitespace-nowrap transition-all cursor-pointer ${
                   isSelected
                     ? 'bg-[#0071E3] text-white shadow-xs'
-                    : 'bg-black/[0.04] text-[#6E6E73] hover:bg-black/[0.08]'
+                    : 'bg-black/[0.04] text-[#333336] hover:bg-black/[0.08]'
                 }`}
               >
                 {cat.name}
@@ -97,7 +97,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Units List */}
       <div className="flex-1 overflow-y-auto p-2 space-y-1">
         {filteredUnits.length === 0 ? (
-          <div className="p-8 text-center text-[#86868B] text-xs">
+          <div className="p-8 text-center text-[#333336] text-sm">
             No units match your filter.
           </div>
         ) : (
@@ -122,19 +122,19 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 <div className="flex items-center gap-2.5 min-w-0 flex-1">
                   
                   {/* Number Badge */}
-                  <span className={`text-xs font-semibold flex-shrink-0 w-5 text-right ${
-                    isSelected ? 'text-[#0071E3]' : 'text-[#86868B]'
+                  <span className={`text-sm font-semibold flex-shrink-0 w-5 text-right ${
+                    isSelected ? 'text-[#0071E3]' : 'text-[#333336]'
                   }`}>
                     {formattedNum}
                   </span>
 
                   <div className="min-w-0 flex-1">
-                    <span className={`text-xs truncate block font-medium ${isSelected ? 'text-[#1D1D1F] font-semibold' : 'text-[#1D1D1F]'}`}>
+                    <span className={`text-sm truncate block font-medium ${isSelected ? 'text-[#1D1D1F] font-semibold' : 'text-[#1D1D1F]'}`}>
                       {unit.title}
                     </span>
 
                     {languageMode === 'bilingual' && (
-                      <p className={`text-[11px] truncate mt-0.5 myanmar-text font-normal ${isSelected ? 'text-[#0071E3]' : 'text-[#86868B]'}`}>
+                      <p className={`text-sm truncate mt-0.5 myanmar-text font-normal ${isSelected ? 'text-[#0071E3]' : 'text-[#333336]'}`}>
                         {unit.summaryBurmese}
                       </p>
                     )}
@@ -154,7 +154,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     className={`p-1 rounded-md transition-colors cursor-pointer ${
                       isBookmarked
                         ? 'text-[#FF9500]'
-                        : 'text-[#86868B]/40 hover:text-[#86868B] opacity-0 group-hover:opacity-100'
+                        : 'text-[#333336]/40 hover:text-[#333336] opacity-0 group-hover:opacity-100'
                     }`}
                   >
                     <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-[#FF9500] text-[#FF9500]' : ''}`} />

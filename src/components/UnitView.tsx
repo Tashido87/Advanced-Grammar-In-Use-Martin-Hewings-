@@ -61,19 +61,19 @@ export const UnitView: React.FC<UnitViewProps> = ({
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-black/[0.05] pb-6">
           <div className="space-y-2.5 max-w-3xl">
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="px-2.5 py-0.5 bg-[#1D1D1F] text-white text-[11px] font-semibold rounded-full tracking-wide">
+              <span className="px-2.5 py-0.5 bg-[#1D1D1F] text-white text-xs font-semibold rounded-full tracking-wide">
                 UNIT {unit.id}
               </span>
-              <span className="px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-black/[0.04] text-[#6E6E73]">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-black/[0.04] text-[#333336]">
                 {unit.category}
               </span>
-              <span className="px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-black/[0.04] text-[#86868B]">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-black/[0.04] text-[#333336]">
                 {unit.level}
               </span>
               {unit.reminderRefs && unit.reminderRefs.length > 0 && (
                 <button
                   onClick={onOpenReminderModal}
-                  className="px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-[#0071E3]/10 text-[#0071E3] hover:bg-[#0071E3]/15 transition-colors cursor-pointer"
+                  className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#0071E3]/10 text-[#0071E3] hover:bg-[#0071E3]/15 transition-colors cursor-pointer"
                 >
                   Rule Ref: {unit.reminderRefs.join(", ")}
                 </button>
@@ -84,7 +84,7 @@ export const UnitView: React.FC<UnitViewProps> = ({
               {unit.title}
             </h1>
 
-            <p className="text-sm text-[#6E6E73] leading-relaxed">
+            <p className="text-base sm:text-lg text-[#333336] leading-relaxed">
               {unit.summary}
             </p>
 
@@ -101,19 +101,19 @@ export const UnitView: React.FC<UnitViewProps> = ({
             <button
               id="unit-bookmark-toggle"
               onClick={onToggleBookmark}
-              className={`apple-btn px-3.5 py-1.5 rounded-full text-xs font-medium cursor-pointer transition-all ${
+              className={`apple-btn px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition-all ${
                 isBookmarked
                   ? 'bg-[#FF9500]/10 text-[#FF9500] border border-[#FF9500]/30'
                   : 'apple-btn-secondary'
               }`}
             >
-              <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-[#FF9500] text-[#FF9500]' : 'text-[#6E6E73]'}`} />
+              <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-[#FF9500] text-[#FF9500]' : 'text-[#333336]'}`} />
               <span>{isBookmarked ? 'Bookmarked' : 'Bookmark'}</span>
             </button>
 
             <button
               onClick={() => onAskAI(`Explain key nuances for Unit ${unit.id}: ${unit.title}`, unit.summary)}
-              className="apple-btn apple-btn-blue px-4 py-1.5 text-xs font-medium cursor-pointer"
+              className="apple-btn apple-btn-blue px-4 py-2 text-sm font-medium cursor-pointer"
             >
               <Sparkles className="w-3.5 h-3.5" />
               <span>Ask AI Tutor</span>
@@ -122,12 +122,12 @@ export const UnitView: React.FC<UnitViewProps> = ({
         </div>
 
         {/* Key Rules Snapshot Box */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-          <div className="bg-[#F5F5F7] p-4 rounded-2xl space-y-2 border border-black/[0.04]">
-            <span className="font-semibold text-[#1D1D1F] text-xs block">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm sm:text-base">
+          <div className="bg-[#F5F5F7] p-5 rounded-2xl space-y-3 border border-black/[0.04]">
+            <span className="font-semibold text-[#1D1D1F] text-sm block">
               Core Principles & Rules
             </span>
-            <ul className="space-y-1.5 text-[#6E6E73]">
+            <ul className="space-y-3 text-[#333336]">
               {unit.keyPoints.map((kp, idx) => (
                 <li key={idx} className="leading-relaxed flex items-start gap-2">
                   <span className="text-[#0071E3] font-bold">•</span>
@@ -138,11 +138,11 @@ export const UnitView: React.FC<UnitViewProps> = ({
           </div>
 
           {languageMode === 'bilingual' && (
-            <div className="bg-[#F5F5F7] p-4 rounded-2xl space-y-2 border border-black/[0.04]">
-              <span className="font-semibold text-[#1D1D1F] text-xs block myanmar-text">
+            <div className="bg-[#F5F5F7] p-5 rounded-2xl space-y-3 border border-black/[0.04]">
+              <span className="font-semibold text-[#1D1D1F] text-sm block myanmar-text">
                 အဓိကမှတ်သားရန် အကျဉ်းချုပ် (မြန်မာ)
               </span>
-              <ul className="space-y-1.5 text-[#6E6E73] myanmar-text">
+              <ul className="space-y-3 text-[#333336] myanmar-text">
                 {unit.keyPointsBurmese.map((kp, idx) => (
                   <li key={idx} className="leading-relaxed flex items-start gap-2">
                     <span className="text-[#0071E3] font-bold">•</span>
@@ -168,7 +168,7 @@ export const UnitView: React.FC<UnitViewProps> = ({
             >
               <BookOpen className="w-3.5 h-3.5" />
               <span>Grammar Explanation</span>
-              <span className="text-[10px] px-1.5 py-0.2 bg-black/[0.05] rounded-full">
+              <span className="text-sm px-2 py-0.5 bg-black/[0.05] rounded-full">
                 {unit.sections.length}
               </span>
             </button>
@@ -182,7 +182,7 @@ export const UnitView: React.FC<UnitViewProps> = ({
             >
               <Dumbbell className="w-3.5 h-3.5" />
               <span>Interactive Practice</span>
-              <span className="text-[10px] px-1.5 py-0.2 bg-black/[0.05] rounded-full">
+              <span className="text-sm px-2 py-0.5 bg-black/[0.05] rounded-full">
                 {unit.exercises.length}
               </span>
             </button>
@@ -193,7 +193,7 @@ export const UnitView: React.FC<UnitViewProps> = ({
             <button
               onClick={onPrevUnit}
               disabled={!hasPrev}
-              className="apple-btn apple-btn-secondary px-3.5 py-1.5 text-xs disabled:opacity-30 cursor-pointer"
+              className="apple-btn apple-btn-secondary px-3.5 py-1.5 text-sm disabled:opacity-30 cursor-pointer"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Prev Unit</span>
@@ -201,7 +201,7 @@ export const UnitView: React.FC<UnitViewProps> = ({
             <button
               onClick={onNextUnit}
               disabled={!hasNext}
-              className="apple-btn apple-btn-blue px-3.5 py-1.5 text-xs disabled:opacity-30 cursor-pointer"
+              className="apple-btn apple-btn-blue px-3.5 py-1.5 text-sm disabled:opacity-30 cursor-pointer"
             >
               <span>Next Unit</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -221,7 +221,7 @@ export const UnitView: React.FC<UnitViewProps> = ({
                 Grammar Explanations
               </h2>
             </div>
-            <span className="text-xs font-medium text-[#86868B] hidden sm:inline">
+            <span className="text-sm font-medium text-[#333336] hidden sm:inline">
               Unit {unit.id} • {unit.sections.length} Sections
             </span>
           </div>
@@ -245,13 +245,13 @@ export const UnitView: React.FC<UnitViewProps> = ({
                 </div>
 
                 {/* Section Rule English */}
-                <p className="text-sm text-[#1D1D1F] leading-relaxed font-normal">
+                <p className="text-base text-[#1D1D1F] leading-relaxed font-normal">
                   {sec.content}
                 </p>
 
                 {/* Burmese Explanation */}
                 {languageMode === 'bilingual' && sec.contentBurmese && (
-                  <div className="apple-burmese-box myanmar-text text-xs sm:text-sm">
+                  <div className="apple-burmese-box myanmar-text text-sm sm:text-base text-[#333336]">
                     <span className="font-semibold text-[#0071E3] mr-1">🇲🇲</span>
                     {sec.contentBurmese}
                   </div>
@@ -259,7 +259,7 @@ export const UnitView: React.FC<UnitViewProps> = ({
 
                 {/* Authentic Examples with audio */}
                 <div className="space-y-2 pt-2 border-t border-black/[0.05]">
-                  <span className="text-[11px] font-semibold text-[#86868B] tracking-wider uppercase block">
+                  <span className="text-xs font-semibold text-[#333336] tracking-wider uppercase block">
                     Examples & Context
                   </span>
                   <div className="space-y-2">
@@ -275,13 +275,13 @@ export const UnitView: React.FC<UnitViewProps> = ({
                           }`}
                         >
                           <div className="flex items-start justify-between gap-3">
-                            <p className="text-xs sm:text-sm font-medium leading-relaxed">
+                            <p className="text-sm sm:text-base font-medium leading-relaxed text-[#1D1D1F]">
                               {ex.text}
                             </p>
                             <button
                               onClick={() => handlePlayAudio(audioKey, ex.text)}
                               title="Listen to pronunciation"
-                              className={`p-1.5 rounded-full text-[#86868B] hover:text-[#0071E3] hover:bg-black/[0.05] transition-colors flex-shrink-0 cursor-pointer ${
+                              className={`p-1.5 rounded-full text-[#333336] hover:text-[#0071E3] hover:bg-black/[0.05] transition-colors flex-shrink-0 cursor-pointer ${
                                 playingAudioIndex === audioKey ? 'text-[#0071E3] animate-pulse bg-[#0071E3]/10' : ''
                               }`}
                             >
@@ -290,13 +290,13 @@ export const UnitView: React.FC<UnitViewProps> = ({
                           </div>
 
                           {ex.note && (
-                            <p className="text-[11px] text-[#6E6E73] mt-1 italic">
+                            <p className="text-xs text-[#333336] mt-1 italic">
                               {ex.note}
                             </p>
                           )}
 
                           {languageMode === 'bilingual' && ex.burmeseNote && (
-                            <p className="text-[11px] text-[#0071E3] mt-1 myanmar-text font-normal">
+                            <p className="text-xs text-[#0071E3] mt-1 myanmar-text font-normal">
                               👉 {ex.burmeseNote}
                             </p>
                           )}
@@ -308,7 +308,7 @@ export const UnitView: React.FC<UnitViewProps> = ({
 
                 {/* Special Note */}
                 {sec.specialNote && (
-                  <div className="p-3.5 bg-[#FF9500]/10 rounded-xl border border-[#FF9500]/20 text-xs text-[#1D1D1F] flex items-start gap-2.5">
+                  <div className="p-3.5 bg-[#FF9500]/10 rounded-xl border border-[#FF9500]/20 text-sm text-[#1D1D1F] flex items-start gap-2.5">
                     <Info className="w-4 h-4 text-[#FF9500] flex-shrink-0 mt-0.5" />
                     <div>
                       <strong className="font-semibold text-[#1D1D1F]">Cambridge Note:</strong> {sec.specialNote}
@@ -323,10 +323,10 @@ export const UnitView: React.FC<UnitViewProps> = ({
           {/* Action to switch to practice */}
           <div className="apple-card p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
-              <h4 className="font-semibold text-[#1D1D1F] text-sm sm:text-base">
+              <h4 className="font-semibold text-[#1D1D1F] text-base sm:text-lg">
                 Ready to practice Unit {unit.id}?
               </h4>
-              <p className="text-xs text-[#6E6E73] mt-0.5">
+              <p className="text-sm text-[#333336] mt-0.5">
                 Apply these grammar rules in {unit.exercises.length} interactive exercises with instant feedback.
               </p>
             </div>
@@ -335,7 +335,7 @@ export const UnitView: React.FC<UnitViewProps> = ({
                 setActiveTab("practice");
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="apple-btn apple-btn-blue px-4 py-2 text-xs font-medium cursor-pointer flex-shrink-0"
+              className="apple-btn apple-btn-blue px-4 py-2 text-sm font-medium cursor-pointer flex-shrink-0"
             >
               <span>Go to Practice ({unit.exercises.length})</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -355,7 +355,7 @@ export const UnitView: React.FC<UnitViewProps> = ({
                 Interactive Exercises
               </h2>
             </div>
-            <span className="text-xs font-medium text-[#86868B]">
+            <span className="text-sm font-medium text-[#333336]">
               {unit.exercises.length} Exercises
             </span>
           </div>
@@ -383,7 +383,7 @@ export const UnitView: React.FC<UnitViewProps> = ({
                 setActiveTab("explanation");
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="apple-btn apple-btn-secondary px-4 py-2 text-xs font-medium cursor-pointer"
+              className="apple-btn apple-btn-secondary px-4 py-2 text-sm font-medium cursor-pointer"
             >
               <BookOpen className="w-3.5 h-3.5" />
               <span>← Review Grammar Explanation</span>
@@ -392,7 +392,7 @@ export const UnitView: React.FC<UnitViewProps> = ({
             <button
               onClick={onNextUnit}
               disabled={!hasNext}
-              className="apple-btn apple-btn-blue px-4 py-2 text-xs font-medium disabled:opacity-30 cursor-pointer"
+              className="apple-btn apple-btn-blue px-4 py-2 text-sm font-medium disabled:opacity-30 cursor-pointer"
             >
               <span>Next Unit</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -407,20 +407,20 @@ export const UnitView: React.FC<UnitViewProps> = ({
         <button
           onClick={onPrevUnit}
           disabled={!hasPrev}
-          className="apple-btn apple-btn-secondary px-4 py-2 text-xs font-medium disabled:opacity-30 cursor-pointer"
+          className="apple-btn apple-btn-secondary px-4 py-2 text-sm font-medium disabled:opacity-30 cursor-pointer"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Previous Unit</span>
         </button>
 
-        <span className="text-xs font-medium text-[#86868B] hidden sm:inline">
+        <span className="text-sm font-medium text-[#333336] hidden sm:inline">
           Unit {unit.id} of 105 • {unit.category}
         </span>
 
         <button
           onClick={onNextUnit}
           disabled={!hasNext}
-          className="apple-btn apple-btn-blue px-4 py-2 text-xs font-medium disabled:opacity-30 cursor-pointer"
+          className="apple-btn apple-btn-blue px-4 py-2 text-sm font-medium disabled:opacity-30 cursor-pointer"
         >
           <span>Next Unit</span>
           <ArrowRight className="w-3.5 h-3.5" />

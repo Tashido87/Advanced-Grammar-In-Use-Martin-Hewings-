@@ -53,11 +53,11 @@ export const Header: React.FC<HeaderProps> = ({
                 <h1 className="text-sm sm:text-base font-semibold text-[#1D1D1F] tracking-tight">
                   Advanced Grammar in Use
                 </h1>
-                <span className="text-[10px] px-2 py-0.5 rounded-full font-semibold bg-[#E8E8ED] text-[#1D1D1F] tracking-wide">
+                <span className="text-sm px-2 py-0.5 rounded-full font-semibold bg-[#E8E8ED] text-[#1D1D1F] tracking-wide">
                   C1 • C2
                 </span>
               </div>
-              <p className="text-[11px] text-[#86868B] font-normal hidden sm:block">
+              <p className="text-sm text-[#333336] font-normal hidden sm:block">
                 Martin Hewings • Cambridge English
               </p>
             </div>
@@ -65,19 +65,19 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Apple Quick Search */}
           <div className="hidden md:flex items-center flex-1 max-w-xs relative">
-            <Search className="w-3.5 h-3.5 text-[#86868B] absolute left-3 top-1/2 -translate-y-1/2" />
+            <Search className="w-3.5 h-3.5 text-[#333336] absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               id="header-search-input"
               type="text"
               placeholder="Search grammar rules, units..."
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
-              className="w-full pl-8 pr-7 py-1.5 text-xs bg-black/[0.04] text-[#1D1D1F] placeholder-[#86868B] rounded-full focus:outline-none focus:ring-2 focus:ring-[#0071E3] focus:bg-white transition-all"
+              className="w-full pl-8 pr-7 py-1.5 text-sm bg-black/[0.04] text-[#1D1D1F] placeholder-[#86868B] rounded-full focus:outline-none focus:ring-2 focus:ring-[#0071E3] focus:bg-white transition-all"
             />
             {searchQuery && (
               <button 
                 onClick={() => onSearchChange("")}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-[#86868B] hover:text-[#1D1D1F]"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-sm text-[#333336] hover:text-[#1D1D1F]"
               >
                 ✕
               </button>
@@ -89,7 +89,7 @@ export const Header: React.FC<HeaderProps> = ({
             
             {/* Progress pill */}
             <div className="hidden lg:flex items-center gap-2 px-3 py-1 bg-black/[0.03] rounded-full border border-black/[0.04]">
-              <span className="text-[11px] font-medium text-[#6E6E73]">
+              <span className="text-sm font-medium text-[#333336]">
                 {completedCount}/{totalUnitsCount} Units
               </span>
               <div className="w-16 h-1.5 bg-black/[0.08] rounded-full overflow-hidden">
@@ -107,7 +107,7 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 id="nav-btn-units"
                 onClick={() => onSelectTab('units')}
-                className={`apple-btn px-3 py-1.5 text-xs font-medium rounded-full cursor-pointer transition-all ${
+                className={`apple-btn px-3 py-1.5 text-sm font-medium rounded-full cursor-pointer transition-all ${
                   currentTab === 'units'
                     ? 'apple-btn-blue'
                     : 'text-[#1D1D1F] hover:bg-black/[0.05]'
@@ -121,7 +121,7 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 id="nav-btn-study-planner"
                 onClick={() => onSelectTab('study-planner')}
-                className={`apple-btn px-3 py-1.5 text-xs font-medium rounded-full cursor-pointer transition-all ${
+                className={`apple-btn px-3 py-1.5 text-sm font-medium rounded-full cursor-pointer transition-all ${
                   currentTab === 'study-planner'
                     ? 'apple-btn-blue'
                     : 'text-[#1D1D1F] hover:bg-black/[0.05]'
@@ -135,7 +135,7 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 id="nav-btn-ai-tutor"
                 onClick={() => onSelectTab('ai-tutor')}
-                className={`apple-btn px-3 py-1.5 text-xs font-medium rounded-full cursor-pointer transition-all ${
+                className={`apple-btn px-3 py-1.5 text-sm font-medium rounded-full cursor-pointer transition-all ${
                   currentTab === 'ai-tutor'
                     ? 'apple-btn-blue'
                     : 'text-[#0071E3] bg-[#0071E3]/10 hover:bg-[#0071E3]/15'
@@ -150,9 +150,9 @@ export const Header: React.FC<HeaderProps> = ({
                 id="nav-btn-reminder"
                 onClick={onOpenReminderModal}
                 title="Open Grammar Reminder Reference (A1-M22)"
-                className="apple-btn px-2.5 py-1.5 text-xs font-medium text-[#1D1D1F] bg-black/[0.04] hover:bg-black/[0.08] rounded-full transition-all cursor-pointer"
+                className="apple-btn px-2.5 py-1.5 text-sm font-medium text-[#1D1D1F] bg-black/[0.04] hover:bg-black/[0.08] rounded-full transition-all cursor-pointer"
               >
-                <ListOrdered className="w-3.5 h-3.5 text-[#6E6E73]" />
+                <ListOrdered className="w-3.5 h-3.5 text-[#333336]" />
                 <span className="hidden xl:inline">A1–M22</span>
               </button>
 
@@ -161,7 +161,7 @@ export const Header: React.FC<HeaderProps> = ({
                 id="btn-language-toggle"
                 onClick={onToggleLanguage}
                 title="Toggle Myanmar (Burmese) Explanations"
-                className={`apple-btn px-3 py-1.5 text-xs font-medium rounded-full transition-all cursor-pointer ${
+                className={`apple-btn px-3 py-1.5 text-sm font-medium rounded-full transition-all cursor-pointer ${
                   languageMode === 'bilingual'
                     ? 'bg-[#1D1D1F] text-white'
                     : 'bg-black/[0.04] text-[#1D1D1F] hover:bg-black/[0.08]'
