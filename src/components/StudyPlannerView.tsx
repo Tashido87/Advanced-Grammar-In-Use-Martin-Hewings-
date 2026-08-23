@@ -108,14 +108,14 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
   });
 
   return (
-    <div id="study-planner-view" className="flex-1 overflow-y-auto bg-[#F8FAFC] p-4 sm:p-6 lg:p-8 space-y-6">
+    <div id="study-planner-view" className="flex-1 overflow-y-auto bg-[#F8F9FA] p-4 sm:p-6 lg:p-8 space-y-6">
       
       {/* Header Banner */}
       <div className="bg-white border border-slate-200 rounded-xl p-6 sm:p-7 shadow-xs">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-5">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="inline-block px-3 py-1 bg-indigo-50 text-indigo-700 text-xs font-bold rounded-full">
+              <span className="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-full border border-blue-200">
                 DIAGNOSTIC ASSESSMENT
               </span>
               <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
@@ -129,7 +129,7 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
               Use this diagnostic test to pinpoint your exact grammar weaknesses and get targeted unit recommendations.
             </p>
             {languageMode === 'bilingual' && (
-              <p className="text-xs sm:text-sm text-amber-800 mt-1.5 font-medium">
+              <p className="text-xs sm:text-sm text-blue-900 mt-1.5 font-medium bg-blue-50/70 p-2.5 rounded-lg border border-blue-200/70">
                 🇲🇲 မည်သည့် Grammar Unit များကို အဓိက လေ့လာသင့်သည်ကို စစ်ဆေးနိုင်သည့် စာအုပ်ပါ အဆင့်စစ် မေးခွန်းတွဲ ဖြစ်ပါသည်။
               </p>
             )}
@@ -139,7 +139,7 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
           <div className="flex items-center gap-2">
             <button
               onClick={handleReset}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold bg-white text-slate-700 hover:bg-slate-50 transition-colors border border-slate-200 shadow-2xs"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold bg-white text-slate-700 hover:bg-slate-50 transition-colors border border-slate-200 shadow-2xs cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Reset Test</span>
@@ -147,7 +147,7 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
             <button
               onClick={handleSubmitTest}
               disabled={isSubmitted || totalAnswered === 0}
-              className="flex items-center gap-1.5 px-5 py-2.5 rounded-lg text-xs sm:text-sm font-bold bg-indigo-600 text-white disabled:opacity-40 hover:bg-indigo-700 transition-colors shadow-xs"
+              className="flex items-center gap-1.5 px-5 py-2.5 rounded-lg text-xs sm:text-sm font-bold bg-blue-600 text-white disabled:opacity-40 hover:bg-blue-700 transition-colors shadow-xs cursor-pointer"
             >
               <Award className="w-4 h-4" />
               <span>{isSubmitted ? "Submitted" : `Submit & Check (${totalAnswered}/${questions.length})`}</span>
@@ -159,9 +159,9 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
         <div className="flex items-center gap-1.5 overflow-x-auto pt-4 no-scrollbar">
           <button
             onClick={() => setActiveSectionFilter("all")}
-            className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${
+            className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
               activeSectionFilter === "all"
-                ? "bg-indigo-600 text-white shadow-2xs"
+                ? "bg-blue-600 text-white shadow-2xs"
                 : "bg-slate-100 text-slate-600 hover:bg-slate-200"
             }`}
           >
@@ -171,9 +171,9 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
             <button
               key={name}
               onClick={() => setActiveSectionFilter(name)}
-              className={`px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-all ${
+              className={`px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-all cursor-pointer ${
                 activeSectionFilter === name
-                  ? "bg-indigo-600 text-white shadow-2xs"
+                  ? "bg-blue-600 text-white shadow-2xs"
                   : "bg-slate-100 text-slate-600 hover:bg-slate-200"
               }`}
             >
@@ -185,10 +185,10 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
 
       {/* Submitted Diagnostic Score Overview */}
       {isSubmitted && (
-        <div className="bg-white rounded-xl p-6 shadow-xs space-y-4 border border-indigo-200">
+        <div className="bg-white rounded-xl p-6 shadow-xs space-y-4 border border-blue-200">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
             <div>
-              <span className="text-xs uppercase tracking-wider text-indigo-600 font-bold">
+              <span className="text-xs uppercase tracking-wider text-blue-600 font-bold">
                 Diagnostic Analysis Report
               </span>
               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mt-1">
@@ -197,7 +197,7 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
             </div>
             <button
               onClick={onOpenReminderModal}
-              className="px-3.5 py-2 rounded-lg text-xs font-semibold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 transition-colors shadow-2xs"
+              className="px-3.5 py-2 rounded-lg text-xs font-semibold bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 transition-colors shadow-2xs cursor-pointer"
             >
               Open Grammar Reminder (A1–M22)
             </button>
@@ -215,7 +215,7 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
                   <div key={sName} className="p-4 bg-slate-50 rounded-lg border border-slate-200 text-xs">
                     <div className="flex items-center justify-between font-bold text-slate-900">
                       <span>{sName}</span>
-                      <span className="text-emerald-700">{stat.correct}/{stat.total}</span>
+                      <span className="text-green-700 font-bold">{stat.correct}/{stat.total}</span>
                     </div>
                     {stat.weakUnits.length > 0 && (
                       <div className="flex items-center gap-1.5 flex-wrap mt-2.5">
@@ -224,7 +224,7 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
                           <button
                             key={uId}
                             onClick={() => onNavigateToUnit(uId)}
-                            className="px-2 py-0.5 rounded bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-[11px] transition-colors shadow-2xs"
+                            className="px-2 py-0.5 rounded bg-blue-600 hover:bg-blue-700 text-white font-bold text-[11px] transition-colors shadow-2xs cursor-pointer"
                           >
                             Unit {uId} →
                           </button>
@@ -254,9 +254,9 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
               id={`planner-q-${q.id}`}
               className={`bg-white border rounded-xl p-5 sm:p-6 shadow-xs transition-all ${
                 isCorrect
-                  ? 'border-emerald-300 bg-emerald-50/40'
+                  ? 'border-green-300 bg-green-50/50'
                   : isWrong || isUnanswered
-                  ? 'border-red-300 bg-red-50/40'
+                  ? 'border-red-300 bg-red-50/50'
                   : 'border-slate-200'
               }`}
             >
@@ -271,7 +271,7 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
                 </div>
                 <div className="flex items-center gap-2 text-xs">
                   <span className="text-slate-400">Ref: Unit {q.unitRef}</span>
-                  <span className="px-2 py-0.5 bg-emerald-50 text-emerald-900 border border-emerald-200 rounded text-[11px] font-semibold">
+                  <span className="px-2 py-0.5 bg-blue-50 text-blue-900 border border-blue-200 rounded text-[11px] font-semibold">
                     {q.reminderRef}
                   </span>
                 </div>
@@ -296,16 +296,16 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
                       disabled={isSubmitted}
                       className={`p-3.5 rounded-lg text-left text-xs sm:text-sm font-medium border flex items-center gap-3 transition-all cursor-pointer ${
                         isThisCorrect
-                          ? 'bg-emerald-50 text-emerald-950 border-emerald-500 font-bold'
+                          ? 'bg-green-50 text-green-950 border-green-500 font-bold'
                           : isSelected && isWrong
                           ? 'bg-red-50 text-red-950 border-red-400'
                           : isSelected
-                          ? 'bg-indigo-50 text-indigo-900 border-2 border-indigo-600 font-bold'
-                          : 'bg-white text-slate-700 border-slate-200 hover:border-indigo-300'
+                          ? 'bg-blue-50 text-blue-900 border-2 border-blue-600 font-bold'
+                          : 'bg-white text-slate-700 border-slate-200 hover:border-blue-400 hover:bg-blue-50/20'
                       }`}
                     >
                       <span className={`w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold ${
-                        isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-600'
+                        isSelected ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-600'
                       }`}>
                         {opt.label}
                       </span>
@@ -321,12 +321,12 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
                   <div className="flex items-center justify-between text-xs">
                     <div className="flex items-center gap-1.5">
                       {isCorrect ? (
-                        <span className="flex items-center gap-1 text-emerald-700 font-bold">
-                          <CheckCircle2 className="w-4 h-4" /> Correct Answer
+                        <span className="flex items-center gap-1 text-green-700 font-bold">
+                          <CheckCircle2 className="w-4 h-4 text-green-600" /> Correct Answer
                         </span>
                       ) : (
                         <span className="flex items-center gap-1 text-red-600 font-semibold">
-                          <XCircle className="w-4 h-4" /> Correct Answer: <strong className="text-slate-900">{q.correctAnswer}</strong>
+                          <XCircle className="w-4 h-4 text-red-500" /> Correct Answer: <strong className="text-slate-900 font-bold">{q.correctAnswer}</strong>
                         </span>
                       )}
                     </div>
@@ -334,9 +334,9 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => toggleExplanation(q.id)}
-                        className="text-indigo-600 hover:text-indigo-800 flex items-center gap-1 font-semibold"
+                        className="text-blue-600 hover:text-blue-800 flex items-center gap-1 font-semibold cursor-pointer"
                       >
-                        <Lightbulb className="w-3.5 h-3.5" />
+                        <Lightbulb className="w-3.5 h-3.5 text-yellow-500" />
                         <span>{isExpanded ? "Hide Rule" : "Explanation"}</span>
                       </button>
 
@@ -345,7 +345,7 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
                           const firstU = parseInt(q.unitRef.split(",")[0].trim(), 10);
                           if (!isNaN(firstU)) onNavigateToUnit(firstU);
                         }}
-                        className="px-2.5 py-1 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-semibold transition-colors border border-indigo-100"
+                        className="px-2.5 py-1 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold transition-colors border border-blue-200 cursor-pointer"
                       >
                         Study Unit {q.unitRef} →
                       </button>
@@ -358,7 +358,7 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
                         💡 <strong>Rule:</strong> {q.explanation}
                       </p>
                       {languageMode === 'bilingual' && (
-                        <p className="text-emerald-950 border-t border-slate-200 pt-1 font-medium">
+                        <p className="text-blue-950 border-t border-slate-200 pt-1 font-medium">
                           🇲🇲 {q.explanationBurmese}
                         </p>
                       )}

@@ -21,12 +21,12 @@ export const IrregularVerbsView: React.FC<IrregularVerbsViewProps> = ({
   );
 
   return (
-    <div id="irregular-verbs-view" className="flex-1 overflow-y-auto bg-[#F8FAFC] p-4 sm:p-6 lg:p-8 space-y-6">
+    <div id="irregular-verbs-view" className="flex-1 overflow-y-auto bg-[#F8F9FA] p-4 sm:p-6 lg:p-8 space-y-6">
       
       {/* Header */}
       <div className="bg-white border border-slate-200 rounded-xl p-6 sm:p-7 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <span className="inline-block px-3 py-1 bg-indigo-50 text-indigo-700 text-xs font-bold rounded-full border border-indigo-100">
+          <span className="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-full border border-blue-200">
             APPENDIX 1
           </span>
           <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-2 tracking-tight">
@@ -44,7 +44,7 @@ export const IrregularVerbsView: React.FC<IrregularVerbsViewProps> = ({
             placeholder="Search verb (e.g. choose, broke)..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 text-xs sm:text-sm bg-white border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-600 text-slate-900 shadow-2xs"
+            className="w-full pl-10 pr-4 py-2 text-xs sm:text-sm bg-white border border-slate-300 rounded-lg focus:outline-none focus:border-blue-600 text-slate-900 shadow-2xs"
           />
         </div>
       </div>
@@ -67,7 +67,7 @@ export const IrregularVerbsView: React.FC<IrregularVerbsViewProps> = ({
             <tbody className="divide-y divide-slate-100">
               {filteredVerbs.map((v, i) => (
                 <tr key={i} className="hover:bg-slate-50/70 transition-colors">
-                  <td className="p-4 sm:px-6 font-bold text-indigo-700">
+                  <td className="p-4 sm:px-6 font-bold text-blue-600">
                     {v.infinitive}
                   </td>
                   <td className="p-4 sm:px-6 text-slate-900 font-medium">
@@ -77,14 +77,14 @@ export const IrregularVerbsView: React.FC<IrregularVerbsViewProps> = ({
                     {v.pastParticiple}
                   </td>
                   {languageMode === 'bilingual' && (
-                    <td className="p-4 sm:px-6 text-emerald-950 font-medium">
+                    <td className="p-4 sm:px-6 text-blue-950 font-medium">
                       {v.burmeseMeaning}
                     </td>
                   )}
                   <td className="p-4 sm:px-6 text-right">
                     <button
                       onClick={() => speakText(`${v.infinitive}, ${v.pastSimple}, ${v.pastParticiple}`)}
-                      className="p-1.5 text-slate-400 hover:text-indigo-600 transition-colors inline-flex items-center"
+                      className="p-1.5 text-slate-400 hover:text-blue-600 transition-colors inline-flex items-center cursor-pointer"
                       title="Pronounce"
                     >
                       <Volume2 className="w-4 h-4" />

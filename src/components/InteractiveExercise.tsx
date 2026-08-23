@@ -97,23 +97,23 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
     <div id={`exercise-card-${exercise.id}`} className="bg-white border border-stone-200 rounded-xl p-5 sm:p-7 shadow-xs space-y-6">
       
       {/* Exercise Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-stone-100 pb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
         <div>
           <div className="flex items-center gap-2">
-            <span className="px-2.5 py-0.5 rounded-md text-xs font-bold bg-stone-100 text-stone-800 border border-stone-200 uppercase tracking-wide">
+            <span className="px-2.5 py-0.5 rounded-md text-xs font-bold bg-blue-50 text-blue-800 border border-blue-200 uppercase tracking-wide">
               Exercise {exercise.id}
             </span>
             {exercise.targetSections && (
-              <span className="text-xs font-medium text-stone-400">
+              <span className="text-xs font-medium text-slate-400">
                 (Sections {exercise.targetSections.join(", ")})
               </span>
             )}
           </div>
-          <p className="font-semibold text-stone-900 text-sm sm:text-base mt-2">
+          <p className="font-semibold text-slate-900 text-sm sm:text-base mt-2">
             {exercise.instruction}
           </p>
           {languageMode === 'bilingual' && exercise.instructionBurmese && (
-            <p className="text-xs text-emerald-900 mt-1 font-medium bg-emerald-50/70 p-2 rounded border border-emerald-200/70 inline-block">
+            <p className="text-xs text-blue-950 mt-1 font-medium bg-blue-50/70 p-2 rounded border border-blue-200/70 inline-block">
               👉 {exercise.instructionBurmese}
             </p>
           )}
@@ -124,7 +124,7 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
           <button
             id={`reset-btn-${exercise.id}`}
             onClick={handleReset}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-stone-600 hover:bg-stone-50 border border-stone-200 transition-colors shadow-2xs"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:bg-slate-50 border border-slate-200 transition-colors shadow-2xs cursor-pointer"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             <span>Reset</span>
@@ -132,7 +132,7 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
           <button
             id={`check-answers-btn-${exercise.id}`}
             onClick={handleCheckAll}
-            className="flex items-center gap-1.5 px-5 py-2 rounded-lg text-xs sm:text-sm font-bold bg-stone-800 hover:bg-stone-900 text-white shadow-xs transition-colors"
+            className="flex items-center gap-1.5 px-5 py-2 rounded-lg text-xs sm:text-sm font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-xs transition-colors cursor-pointer"
           >
             <Check className="w-4 h-4" />
             <span>Check Answers</span>
@@ -142,15 +142,15 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
 
       {/* Word Bank if present */}
       {exercise.wordBank && exercise.wordBank.length > 0 && (
-        <div className="p-4 bg-stone-50 rounded-lg border border-stone-200">
-          <span className="text-[11px] font-bold text-stone-500 uppercase tracking-wider block mb-2">
+        <div className="p-4 bg-slate-50 rounded-lg border border-slate-200">
+          <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-2">
             Word Bank (စကားလုံးဘဏ်)
           </span>
           <div className="flex flex-wrap gap-2">
             {exercise.wordBank.map((word, i) => (
               <span
                 key={i}
-                className="px-2.5 py-1 text-xs font-medium bg-white border border-stone-300 rounded-md text-stone-800 shadow-2xs hover:border-stone-500 hover:text-stone-900 transition-colors cursor-default"
+                className="px-2.5 py-1 text-xs font-medium bg-white border border-slate-300 rounded-md text-slate-800 shadow-2xs hover:border-blue-500 hover:text-blue-600 transition-colors cursor-default"
               >
                 {word}
               </span>
@@ -176,10 +176,10 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
               id={`question-box-${exercise.id}-${q.id}`}
               className={`p-4 sm:p-5 rounded-xl border transition-all ${
                 isCorrect
-                  ? 'bg-emerald-50/50 border-emerald-300'
+                  ? 'bg-green-50/60 border-green-300'
                   : isWrong
-                  ? 'bg-rose-50/50 border-rose-300'
-                  : 'bg-white border-stone-200'
+                  ? 'bg-red-50/60 border-red-300'
+                  : 'bg-white border-slate-200'
               }`}
             >
               <div className="flex items-start justify-between gap-2">
@@ -187,19 +187,19 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
                   
                   {/* Prompt Text / Context */}
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs font-bold text-stone-400">0{idx + 1}</span>
+                    <span className="text-xs font-bold text-slate-400">0{idx + 1}</span>
                     <button
                       onClick={() => handleAudioPlay(q.id, q.prompt)}
                       title="Listen to sentence"
-                      className={`p-1 rounded text-stone-400 hover:text-stone-700 transition-colors ${
-                        activeAudioId === q.id ? 'text-stone-900 animate-pulse' : ''
+                      className={`p-1 rounded text-slate-400 hover:text-blue-600 transition-colors cursor-pointer ${
+                        activeAudioId === q.id ? 'text-blue-600 animate-pulse bg-blue-50' : ''
                       }`}
                     >
                       <Volume2 className="w-3.5 h-3.5" />
                     </button>
                   </div>
 
-                  <p className="text-sm sm:text-base text-stone-800 font-medium whitespace-pre-line leading-relaxed">
+                  <p className="text-sm sm:text-base text-slate-800 font-medium whitespace-pre-line leading-relaxed">
                     {q.prompt}
                   </p>
 
@@ -215,8 +215,8 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
                             onClick={() => handleInputChange(q.id, opt)}
                             className={`p-3.5 rounded-lg text-left text-xs sm:text-sm font-medium border transition-all cursor-pointer ${
                               isSelected
-                                ? 'bg-stone-100 border-2 border-stone-800 text-stone-900 font-bold shadow-2xs'
-                                : 'bg-white text-stone-700 border-stone-200 hover:border-stone-400 hover:bg-stone-50'
+                                ? 'bg-blue-50 border-2 border-blue-600 text-blue-900 font-bold shadow-2xs'
+                                : 'bg-white text-slate-700 border-slate-200 hover:border-blue-400 hover:bg-blue-50/30'
                             }`}
                           >
                             {opt}
@@ -227,7 +227,7 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
                   ) : (
                     <div className="flex items-center gap-2 mt-3.5 flex-wrap">
                       {q.prefix && (
-                        <span className="text-xs sm:text-sm font-medium text-stone-700">
+                        <span className="text-xs sm:text-sm font-medium text-slate-700">
                           {q.prefix}
                         </span>
                       )}
@@ -244,16 +244,16 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
                           placeholder="Type your answer..."
                           className={`w-full px-3.5 py-2 text-xs sm:text-sm rounded-lg border focus:outline-none transition-colors ${
                             isCorrect
-                              ? 'border-emerald-600 bg-white text-emerald-950 font-semibold'
+                              ? 'border-green-600 bg-white text-green-950 font-semibold ring-1 ring-green-400'
                               : isWrong
-                              ? 'border-rose-600 bg-white text-rose-950'
-                              : 'border-stone-300 bg-white text-stone-900 focus:border-stone-700'
+                              ? 'border-red-600 bg-white text-red-950 font-semibold ring-1 ring-red-400'
+                              : 'border-slate-300 bg-white text-slate-900 focus:border-blue-600 focus:ring-1 focus:ring-blue-500'
                           }`}
                         />
                       </div>
 
                       {q.suffix && (
-                        <span className="text-xs sm:text-sm font-medium text-stone-700">
+                        <span className="text-xs sm:text-sm font-medium text-slate-700">
                           {q.suffix}
                         </span>
                       )}
@@ -262,24 +262,24 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
 
                   {/* Feedback Status */}
                   {isResultChecked && (
-                    <div className="mt-3.5 flex items-center justify-between gap-2 pt-3 border-t border-stone-100">
+                    <div className="mt-3.5 flex items-center justify-between gap-2 pt-3 border-t border-slate-100">
                       {isCorrect ? (
-                        <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-800">
-                          <CheckCircle className="w-4 h-4 text-emerald-600" />
+                        <div className="flex items-center gap-1.5 text-xs font-bold text-green-700">
+                          <CheckCircle className="w-4 h-4 text-green-600" />
                           <span>Correct! Authentic grammar usage.</span>
                         </div>
                       ) : (
-                        <div className="flex items-center gap-1.5 text-xs font-semibold text-rose-700">
-                          <XCircle className="w-4 h-4" />
-                          <span>Incorrect. Correct answer: <strong className="text-stone-900 font-bold">{primaryCorrectAnswer}</strong></span>
+                        <div className="flex items-center gap-1.5 text-xs font-semibold text-red-600">
+                          <XCircle className="w-4 h-4 text-red-500" />
+                          <span>Incorrect. Correct answer: <strong className="text-slate-900 font-bold">{primaryCorrectAnswer}</strong></span>
                         </div>
                       )}
 
                       <button
                         onClick={() => toggleExplanation(q.id)}
-                        className="ml-auto text-xs text-stone-700 hover:text-stone-900 flex items-center gap-1 font-semibold underline"
+                        className="ml-auto text-xs text-blue-700 hover:text-blue-800 flex items-center gap-1 font-semibold underline cursor-pointer"
                       >
-                        <Lightbulb className="w-3.5 h-3.5 text-emerald-700" />
+                        <Lightbulb className="w-3.5 h-3.5 text-yellow-500" />
                         <span>{isExpanded ? "Hide Rule" : "Why is this right?"}</span>
                         {isExpanded ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
                       </button>
@@ -288,19 +288,19 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
 
                   {/* Show Answer Toggle view */}
                   {showAnswers && !isResultChecked && (
-                    <div className="mt-2 text-xs font-semibold text-stone-800 bg-stone-100 p-2.5 rounded-lg border border-stone-200">
+                    <div className="mt-2 text-xs font-semibold text-slate-800 bg-slate-100 p-2.5 rounded-lg border border-slate-200">
                       Answer Key: {primaryCorrectAnswer}
                     </div>
                   )}
 
                   {/* Deep Explanation Panel */}
                   {isExpanded && (
-                    <div className="mt-3 p-3.5 bg-stone-50 rounded-lg border border-stone-200 text-xs text-stone-700 space-y-2">
-                      <p className="font-medium text-stone-900">
+                    <div className="mt-3 p-3.5 bg-slate-50 rounded-lg border border-slate-200 text-xs text-slate-700 space-y-2">
+                      <p className="font-medium text-slate-900">
                         💡 <strong>Grammar Rule:</strong> {q.explanation}
                       </p>
                       {languageMode === 'bilingual' && q.explanationBurmese && (
-                        <p className="text-emerald-950 pt-1.5 border-t border-stone-200 font-medium">
+                        <p className="text-blue-950 pt-1.5 border-t border-slate-200 font-medium">
                           🇲🇲 <strong>မြန်မာဘာသာ ရှင်းလင်းချက်:</strong> {q.explanationBurmese}
                         </p>
                       )}
@@ -308,9 +308,9 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
                         <div className="pt-2">
                           <button
                             onClick={() => onAskAI(`Explain why the answer for this sentence is "${primaryCorrectAnswer}": "${q.prompt}"`, q.explanation)}
-                            className="inline-flex items-center gap-1 text-[11px] font-bold text-stone-700 hover:text-stone-900 underline"
+                            className="inline-flex items-center gap-1 text-[11px] font-bold text-blue-700 hover:text-blue-800 underline cursor-pointer"
                           >
-                            <Sparkles className="w-3 h-3 text-emerald-700" />
+                            <Sparkles className="w-3 h-3 text-blue-600" />
                             Ask AI Tutor for deeper explanation
                           </button>
                         </div>
@@ -327,18 +327,18 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
 
       {/* Score Summary & Tip Banner */}
       <div className="space-y-3 pt-2">
-        <div className="p-4 bg-emerald-50/80 border border-emerald-200/90 rounded-lg flex items-start gap-2.5 text-xs text-emerald-950">
-          <Lightbulb className="w-4 h-4 text-emerald-700 flex-shrink-0 mt-0.5" />
+        <div className="p-4 bg-blue-50/70 border border-blue-200/90 rounded-lg flex items-start gap-2.5 text-xs text-blue-950">
+          <Lightbulb className="w-4 h-4 text-yellow-500 flex-shrink-0 mt-0.5" />
           <p className="leading-relaxed">
             <strong>Exam & Usage Tip:</strong> Cambridge Advanced tests precise aspect, modal nuance, and inversion. Review the grammar rules and exercise answer explanations to cement your understanding.
           </p>
         </div>
 
-        <div className="flex items-center justify-between pt-2 border-t border-stone-100 text-xs text-stone-500">
+        <div className="flex items-center justify-between pt-2 border-t border-slate-100 text-xs text-slate-500">
           <div>
             <span>Answered: {answeredQuestions} of {totalQuestions}</span>
             {checkedQuestions > 0 && (
-              <span className="ml-3 font-bold text-stone-900 bg-stone-100 px-2.5 py-0.5 rounded border border-stone-200">
+              <span className="ml-3 font-bold text-slate-900 bg-slate-100 px-2.5 py-0.5 rounded border border-slate-200">
                 Score: {correctTotal} / {totalQuestions} ({Math.round((correctTotal / totalQuestions) * 100)}%)
               </span>
             )}
@@ -346,7 +346,7 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
           <button
             id={`toggle-answers-btn-${exercise.id}`}
             onClick={() => setShowAnswers(!showAnswers)}
-            className="text-xs text-stone-600 hover:text-stone-900 underline"
+            className="text-xs text-slate-600 hover:text-slate-900 underline cursor-pointer"
           >
             {showAnswers ? "Hide Answer Keys" : "Show Answer Keys"}
           </button>

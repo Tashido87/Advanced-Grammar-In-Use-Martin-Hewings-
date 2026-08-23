@@ -111,7 +111,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-stone-50/60 flex flex-col text-stone-800 font-sans selection:bg-stone-800 selection:text-white">
+    <div className="min-h-screen bg-[#F8F9FA] flex flex-col text-slate-800 font-sans selection:bg-blue-600 selection:text-white">
       
       {/* Top Main Navigation Header */}
       <Header
@@ -131,14 +131,14 @@ export default function App() {
       />
 
       {/* Sub-nav Secondary Bar */}
-      <div className="bg-white border-b border-stone-200 px-4 sm:px-6 py-2 flex items-center justify-between text-xs overflow-x-auto shadow-2xs">
+      <div className="bg-white border-b border-slate-200 px-4 sm:px-6 py-2 flex items-center justify-between text-xs overflow-x-auto shadow-2xs">
         <div className="flex items-center gap-1.5 sm:gap-2 min-w-max">
           
           {/* Mobile Sidebar toggle button */}
           {currentTab === 'units' && (
             <button
               onClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
-              className="md:hidden flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-stone-100 text-stone-800 font-semibold hover:bg-stone-200 transition-colors"
+              className="md:hidden flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-slate-100 text-slate-800 font-semibold hover:bg-slate-200 transition-colors cursor-pointer"
             >
               {isMobileSidebarOpen ? <X className="w-3.5 h-3.5" /> : <Menu className="w-3.5 h-3.5" />}
               <span>Units List</span>
@@ -147,73 +147,73 @@ export default function App() {
 
           <button
             onClick={() => setCurrentTab('units')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-semibold transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-semibold transition-all cursor-pointer ${
               currentTab === 'units'
-                ? 'bg-stone-100 text-stone-900 border-b-2 border-stone-800'
-                : 'text-stone-600 hover:text-stone-900 hover:bg-stone-50'
+                ? 'bg-blue-50 text-blue-700 border-b-2 border-blue-600'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
             }`}
           >
-            <BookOpen className="w-3.5 h-3.5" />
+            <BookOpen className="w-3.5 h-3.5 text-blue-600" />
             <span>Units (1–105)</span>
           </button>
 
           <button
             onClick={() => setCurrentTab('study-planner')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-semibold transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-semibold transition-all cursor-pointer ${
               currentTab === 'study-planner'
-                ? 'bg-stone-100 text-stone-900 border-b-2 border-stone-800'
-                : 'text-stone-600 hover:text-stone-900 hover:bg-stone-50'
+                ? 'bg-blue-50 text-blue-700 border-b-2 border-blue-600'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
             }`}
           >
-            <GraduationCap className="w-3.5 h-3.5 text-stone-700" />
+            <GraduationCap className="w-3.5 h-3.5 text-blue-600" />
             <span>Study Planner (Diagnostic Test)</span>
           </button>
 
           <button
             onClick={() => setCurrentTab('irregular-verbs')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-semibold transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-semibold transition-all cursor-pointer ${
               currentTab === 'irregular-verbs'
-                ? 'bg-stone-100 text-stone-900 border-b-2 border-stone-800'
-                : 'text-stone-600 hover:text-stone-900 hover:bg-stone-50'
+                ? 'bg-blue-50 text-blue-700 border-b-2 border-blue-600'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
             }`}
           >
-            <Table className="w-3.5 h-3.5" />
+            <Table className="w-3.5 h-3.5 text-blue-600" />
             <span>Irregular Verbs (App. 1)</span>
           </button>
 
           <button
             onClick={() => setCurrentTab('glossary')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-semibold transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-semibold transition-all cursor-pointer ${
               currentTab === 'glossary'
-                ? 'bg-stone-100 text-stone-900 border-b-2 border-stone-800'
-                : 'text-stone-600 hover:text-stone-900 hover:bg-stone-50'
+                ? 'bg-blue-50 text-blue-700 border-b-2 border-blue-600'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
             }`}
           >
-            <HelpCircle className="w-3.5 h-3.5" />
+            <HelpCircle className="w-3.5 h-3.5 text-blue-600" />
             <span>Grammar Glossary</span>
           </button>
 
           <button
             onClick={() => setCurrentTab('ai-tutor')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-semibold transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-semibold transition-all cursor-pointer ${
               currentTab === 'ai-tutor'
-                ? 'bg-stone-800 text-white shadow-2xs'
-                : 'text-stone-700 hover:text-stone-900 hover:bg-stone-100'
+                ? 'bg-blue-600 text-white shadow-2xs'
+                : 'text-slate-700 hover:text-blue-600 hover:bg-blue-50/50'
             }`}
           >
-            <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+            <Sparkles className="w-3.5 h-3.5 text-yellow-400" />
             <span>Ask AI Explainer</span>
           </button>
         </div>
 
         {/* Bookmarked Filter shortcut */}
-        <div className="hidden sm:flex items-center gap-4 text-stone-500 font-medium flex-shrink-0 pl-4">
+        <div className="hidden sm:flex items-center gap-4 text-slate-500 font-medium flex-shrink-0 pl-4">
           <span className="flex items-center gap-1.5">
-            <Bookmark className="w-3.5 h-3.5 text-emerald-700 fill-emerald-500/20" />
+            <Bookmark className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500/20" />
             {bookmarkedUnits.length} Bookmarked
           </span>
-          <span className="flex items-center gap-1.5 text-stone-700 font-semibold">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" />
+          <span className="flex items-center gap-1.5 text-slate-700 font-semibold">
+            <CheckCircle2 className="w-3.5 h-3.5 text-green-600" />
             {completedUnits.length} Mastered
           </span>
         </div>

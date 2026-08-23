@@ -81,10 +81,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 key={cat.id}
                 id={`cat-filter-${cat.id}`}
                 onClick={() => onSelectCategory(cat.id)}
-                className={`px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-all ${
+                className={`px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-all cursor-pointer ${
                   isSelected
-                    ? 'bg-stone-800 text-white shadow-2xs'
-                    : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
+                    ? 'bg-blue-600 text-white shadow-2xs'
+                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                 }`}
               >
                 {cat.name}
@@ -97,7 +97,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Units List */}
       <div className="flex-1 overflow-y-auto p-3 space-y-1">
         {filteredUnits.length === 0 ? (
-          <div className="p-8 text-center text-stone-400 text-sm">
+          <div className="p-8 text-center text-slate-400 text-sm">
             No units match your filter.
           </div>
         ) : (
@@ -115,28 +115,28 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 onClick={() => onSelectUnit(unit.id)}
                 className={`group flex items-center justify-between gap-3 p-3 rounded-lg cursor-pointer transition-all ${
                   isSelected
-                    ? 'bg-emerald-50/70 text-emerald-950 font-semibold border-l-3 border-emerald-700 shadow-2xs'
-                    : 'text-stone-600 hover:bg-stone-50 hover:text-stone-900'
+                    ? 'bg-blue-50/90 text-blue-900 font-semibold border-l-4 border-blue-600 shadow-2xs'
+                    : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
                 }`}
               >
                 <div className="flex items-center gap-3 min-w-0 flex-1">
                   
                   {/* Number Badge */}
                   <span className={`text-sm italic font-bold flex-shrink-0 ${
-                    isSelected ? 'opacity-90 text-emerald-800' : 'opacity-40 text-stone-400'
+                    isSelected ? 'opacity-100 text-blue-600' : 'opacity-40 text-slate-400'
                   }`}>
                     {formattedNum}
                   </span>
 
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-1.5">
-                      <span className={`text-xs truncate font-medium ${isSelected ? 'text-stone-950 font-bold' : 'text-stone-800'}`}>
+                      <span className={`text-xs truncate font-medium ${isSelected ? 'text-blue-950 font-bold' : 'text-slate-800'}`}>
                         {unit.title}
                       </span>
                     </div>
 
                     {languageMode === 'bilingual' && (
-                      <p className="text-[11px] text-emerald-800 truncate mt-0.5 font-normal">
+                      <p className={`text-[11px] truncate mt-0.5 font-normal ${isSelected ? 'text-blue-700' : 'text-slate-500'}`}>
                         {unit.summaryBurmese}
                       </p>
                     )}
@@ -146,7 +146,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 {/* Status Indicator & Bookmark */}
                 <div className="flex items-center gap-1.5 flex-shrink-0">
                   {isCompleted && (
-                    <span className="w-2 h-2 rounded-full bg-emerald-600" title="Mastered" />
+                    <span className="w-2 h-2 rounded-full bg-green-500 ring-2 ring-green-100" title="Mastered" />
                   )}
 
                   <button
@@ -155,11 +155,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     title={isBookmarked ? "Remove bookmark" : "Bookmark this unit"}
                     className={`p-1 rounded transition-colors cursor-pointer ${
                       isBookmarked
-                        ? 'text-emerald-700 hover:text-emerald-800'
-                        : 'text-stone-300 hover:text-stone-500 opacity-0 group-hover:opacity-100'
+                        ? 'text-amber-500 hover:text-amber-600'
+                        : 'text-slate-300 hover:text-slate-500 opacity-0 group-hover:opacity-100'
                     }`}
                   >
-                    <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-current' : ''}`} />
+                    <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-amber-500 text-amber-500' : ''}`} />
                   </button>
                 </div>
 

@@ -45,39 +45,45 @@ export const Header: React.FC<HeaderProps> = ({
           
           {/* Logo & Brand */}
           <div className="flex items-center gap-3 cursor-pointer select-none" onClick={() => onSelectTab('units')}>
-            <div className="w-9 h-9 bg-stone-800 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-xs">
+            <div className="w-9 h-9 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-xs ring-2 ring-blue-100">
               G
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="text-base font-bold text-stone-900 tracking-tight">
+                <h1 className="text-base font-bold text-slate-900 tracking-tight">
                   Advanced Grammar in Use
                 </h1>
-                <span className="text-[10px] px-2 py-0.5 rounded font-bold bg-stone-100 text-stone-700 border border-stone-300 tracking-wide uppercase">
+                <span className="text-[10px] px-2 py-0.5 rounded font-bold bg-blue-50 text-blue-700 border border-blue-200 tracking-wide uppercase">
                   B2 – C2
                 </span>
               </div>
-              <p className="text-xs text-stone-500 font-medium tracking-wide uppercase hidden sm:block">
-                Martin Hewings • Cambridge Edition
-              </p>
+              <div className="flex items-center gap-1.5 mt-0.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-yellow-500"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                <p className="text-xs text-slate-500 font-medium tracking-wide uppercase hidden sm:block ml-1">
+                  Martin Hewings • Cambridge Edition
+                </p>
+              </div>
             </div>
           </div>
 
           {/* Quick Search */}
           <div className="hidden md:flex items-center flex-1 max-w-xs relative">
-            <Search className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               id="header-search-input"
               type="text"
               placeholder="Search grammar rules, units..."
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
-              className="w-full pl-9 pr-8 py-1.5 text-xs sm:text-sm bg-stone-50 text-stone-800 placeholder-stone-400 border border-stone-200 rounded-lg focus:outline-none focus:border-stone-500 focus:bg-white transition-all"
+              className="w-full pl-9 pr-8 py-1.5 text-xs sm:text-sm bg-slate-50 text-slate-800 placeholder-slate-400 border border-slate-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:bg-white transition-all"
             />
             {searchQuery && (
               <button 
                 onClick={() => onSearchChange("")}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-stone-400 hover:text-stone-600"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-slate-600"
               >
                 ✕
               </button>
@@ -89,12 +95,12 @@ export const Header: React.FC<HeaderProps> = ({
             
             {/* Progress bar */}
             <div className="hidden lg:flex flex-col items-end pr-2">
-              <span className="text-[10px] font-bold text-stone-400 tracking-widest uppercase mb-1">
+              <span className="text-[10px] font-bold text-slate-400 tracking-widest uppercase mb-1">
                 COURSE PROGRESS ({completedCount}/{totalUnitsCount})
               </span>
-              <div className="w-32 h-2 bg-stone-100 rounded-full overflow-hidden border border-stone-200">
+              <div className="w-32 h-2 bg-slate-100 rounded-full overflow-hidden border border-slate-200">
                 <div 
-                  className="h-full bg-emerald-700 rounded-full transition-all duration-300"
+                  className="h-full bg-blue-600 rounded-full transition-all duration-300"
                   style={{ width: `${progressPercent}%` }}
                 />
               </div>
@@ -109,8 +115,8 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={() => onSelectTab('units')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                   currentTab === 'units'
-                    ? 'bg-stone-800 text-white shadow-xs'
-                    : 'text-stone-600 hover:bg-stone-100 hover:text-stone-900'
+                    ? 'bg-blue-600 text-white shadow-xs'
+                    : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
                 }`}
               >
                 <BookOpen className="w-4 h-4" />
@@ -123,13 +129,13 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={() => onSelectTab('study-planner')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                   currentTab === 'study-planner'
-                    ? 'bg-stone-800 text-white shadow-xs'
-                    : 'text-stone-600 hover:bg-stone-100 hover:text-stone-900'
+                    ? 'bg-blue-600 text-white shadow-xs'
+                    : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
                 }`}
               >
                 <GraduationCap className="w-4 h-4" />
                 <span className="hidden sm:inline">Study Planner</span>
-                <span className="text-[10px] uppercase tracking-wider px-1.5 py-0.2 bg-stone-100 text-stone-700 rounded font-bold">
+                <span className="text-[10px] uppercase tracking-wider px-1.5 py-0.2 bg-blue-100 text-blue-800 rounded font-bold">
                   Test
                 </span>
               </button>
@@ -140,11 +146,11 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={() => onSelectTab('ai-tutor')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                   currentTab === 'ai-tutor'
-                    ? 'bg-stone-800 text-white shadow-xs'
-                    : 'text-stone-700 bg-stone-100 hover:bg-stone-200 transition-colors'
+                    ? 'bg-blue-600 text-white shadow-xs'
+                    : 'text-slate-700 bg-slate-100 hover:bg-blue-50 hover:text-blue-700 transition-colors'
                 }`}
               >
-                <Sparkles className="w-4 h-4 text-emerald-700" />
+                <Sparkles className="w-4 h-4 text-blue-600" />
                 <span className="hidden md:inline">AI Tutor</span>
               </button>
 
@@ -153,9 +159,9 @@ export const Header: React.FC<HeaderProps> = ({
                 id="nav-btn-reminder"
                 onClick={onOpenReminderModal}
                 title="Open Grammar Reminder Reference (A1-M22)"
-                className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-stone-700 bg-white hover:bg-stone-50 border border-stone-200 shadow-2xs transition-all cursor-pointer"
+                className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 shadow-2xs transition-all cursor-pointer"
               >
-                <ListOrdered className="w-3.5 h-3.5 text-stone-600" />
+                <ListOrdered className="w-3.5 h-3.5 text-slate-600" />
                 <span className="hidden xl:inline">A1-M22</span>
               </button>
 
@@ -166,11 +172,11 @@ export const Header: React.FC<HeaderProps> = ({
                 title="Toggle Myanmar (Burmese) Explanations"
                 className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all border cursor-pointer ${
                   languageMode === 'bilingual'
-                    ? 'bg-emerald-50 text-emerald-950 border-emerald-300 hover:bg-emerald-100'
-                    : 'bg-stone-50 text-stone-600 border-stone-200 hover:bg-stone-100'
+                    ? 'bg-blue-50 text-blue-900 border-blue-300 hover:bg-blue-100'
+                    : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
                 }`}
               >
-                <Languages className="w-3.5 h-3.5 text-emerald-700" />
+                <Languages className="w-3.5 h-3.5 text-blue-600" />
                 <span>{languageMode === 'bilingual' ? 'မြန်မာ + EN' : 'EN Only'}</span>
               </button>
 
