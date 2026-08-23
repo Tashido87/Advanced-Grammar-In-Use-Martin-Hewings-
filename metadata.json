@@ -1,0 +1,7 @@
+{
+  "name": "Advanced Grammar Master",
+  "description": "Interactive learning app based on Advanced Grammar in Use with authentic rules, bilingual Burmese explanations, diagnostic study planner, and auto-checking exercises.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
