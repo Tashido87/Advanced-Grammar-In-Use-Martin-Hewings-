@@ -59,21 +59,21 @@ export const UnitView: React.FC<UnitViewProps> = ({
       {/* Apple Unit Hero Card */}
       <div className="apple-card p-6 sm:p-8 space-y-6">
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-black/[0.05] pb-6">
-          <div className="space-y-2.5 max-w-3xl">
+          <div className="space-y-3 max-w-3xl">
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="px-2.5 py-0.5 bg-[#202124] text-white text-xs font-semibold rounded-full tracking-wide">
+              <span className="px-3 py-1 bg-gradient-to-r from-[#4285F4] to-[#1A73E8] text-white text-xs font-bold rounded-full tracking-wide shadow-xs">
                 UNIT {unit.id}
               </span>
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-black/[0.04] text-[#333336]">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200/60">
                 {unit.category}
               </span>
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-black/[0.04] text-[#333336]">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200/60">
                 {unit.level}
               </span>
               {unit.reminderRefs && unit.reminderRefs.length > 0 && (
                 <button
                   onClick={onOpenReminderModal}
-                  className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#4285F4]/10 text-[#4285F4] hover:bg-[#4285F4]/15 transition-colors cursor-pointer"
+                  className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-sky-50 text-[#1A73E8] hover:bg-sky-100 border border-sky-200/60 transition-colors cursor-pointer"
                 >
                   Rule Ref: {unit.reminderRefs.join(", ")}
                 </button>
@@ -84,13 +84,13 @@ export const UnitView: React.FC<UnitViewProps> = ({
               {unit.title}
             </h1>
 
-            <p className="text-base sm:text-lg text-[#333336] leading-relaxed">
+            <p className="text-base sm:text-lg text-[#202124] leading-relaxed">
               {unit.summary}
             </p>
 
             {languageMode === 'bilingual' && (
-              <div className="apple-burmese-box myanmar-text mt-2">
-                <span className="font-semibold text-[#4285F4] mr-1">🇲🇲</span>
+              <div className="apple-burmese-box myanmar-text mt-2 text-sm sm:text-base">
+                <span className="font-semibold text-[#4285F4] mr-1.5">🇲🇲</span>
                 {unit.summaryBurmese}
               </div>
             )}
@@ -103,11 +103,11 @@ export const UnitView: React.FC<UnitViewProps> = ({
               onClick={onToggleBookmark}
               className={`apple-btn px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition-all ${
                 isBookmarked
-                  ? 'bg-[#FBBC05]/10 text-[#FBBC05] border border-[#FBBC05]/30'
+                  ? 'bg-amber-50 text-amber-700 border border-amber-300 shadow-xs'
                   : 'apple-btn-secondary'
               }`}
             >
-              <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-[#FBBC05] text-[#FBBC05]' : 'text-[#333336]'}`} />
+              <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-amber-500 text-amber-600' : 'text-[#333336]'}`} />
               <span>{isBookmarked ? 'Bookmarked' : 'Bookmark'}</span>
             </button>
 
@@ -122,15 +122,18 @@ export const UnitView: React.FC<UnitViewProps> = ({
         </div>
 
         {/* Key Rules Snapshot Box */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm sm:text-base">
-          <div className="bg-[#F8F9FA] p-5 rounded-2xl space-y-3 border border-black/[0.04]">
-            <span className="font-semibold text-[#202124] text-sm block">
-              Core Principles & Rules
-            </span>
-            <ul className="space-y-3 text-[#333336]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 text-sm sm:text-base">
+          <div className="bg-gradient-to-br from-blue-50/80 via-sky-50/40 to-slate-50/60 p-5 rounded-2xl space-y-3 border border-blue-100/80 shadow-xs">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#4285F4]" />
+              <span className="font-bold text-[#1A73E8] text-sm tracking-tight block">
+                Core Principles & Rules
+              </span>
+            </div>
+            <ul className="space-y-2.5 text-[#202124]">
               {unit.keyPoints.map((kp, idx) => (
-                <li key={idx} className="leading-relaxed flex items-start gap-2">
-                  <span className="text-[#4285F4] font-bold">•</span>
+                <li key={idx} className="leading-relaxed flex items-start gap-2.5">
+                  <span className="text-[#4285F4] font-bold mt-0.5">•</span>
                   <span>{kp}</span>
                 </li>
               ))}
@@ -138,14 +141,17 @@ export const UnitView: React.FC<UnitViewProps> = ({
           </div>
 
           {languageMode === 'bilingual' && (
-            <div className="bg-[#F8F9FA] p-5 rounded-2xl space-y-3 border border-black/[0.04]">
-              <span className="font-semibold text-[#202124] text-sm block myanmar-text">
-                အဓိကမှတ်သားရန် အကျဉ်းချုပ် (မြန်မာ)
-              </span>
-              <ul className="space-y-3 text-[#333336] myanmar-text">
+            <div className="bg-gradient-to-br from-indigo-50/80 via-purple-50/40 to-slate-50/60 p-5 rounded-2xl space-y-3 border border-indigo-100/80 shadow-xs">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-indigo-500" />
+                <span className="font-bold text-indigo-800 text-sm block myanmar-text tracking-tight">
+                  အဓိကမှတ်သားရန် အကျဉ်းချုပ် (မြန်မာ)
+                </span>
+              </div>
+              <ul className="space-y-2.5 text-[#202124] myanmar-text">
                 {unit.keyPointsBurmese.map((kp, idx) => (
-                  <li key={idx} className="leading-relaxed flex items-start gap-2">
-                    <span className="text-[#4285F4] font-bold">•</span>
+                  <li key={idx} className="leading-relaxed flex items-start gap-2.5">
+                    <span className="text-indigo-600 font-bold mt-0.5">•</span>
                     <span>{kp}</span>
                   </li>
                 ))}
@@ -232,14 +238,14 @@ export const UnitView: React.FC<UnitViewProps> = ({
               <div
                 key={sec.id}
                 id={`section-card-${sec.id}`}
-                className="apple-card p-6 sm:p-7 space-y-4"
+                className="apple-card p-6 sm:p-7 space-y-4 border border-slate-200/70"
               >
                 {/* Section Title */}
                 <div className="flex items-center gap-2.5">
-                  <span className="w-6 h-6 rounded-full bg-[#202124] text-white flex items-center justify-center text-xs font-semibold">
+                  <span className="w-7 h-7 rounded-xl bg-gradient-to-br from-[#4285F4] to-[#1A73E8] text-white flex items-center justify-center text-xs font-bold shadow-xs">
                     {sec.id}
                   </span>
-                  <h3 className="font-semibold text-[#202124] text-base">
+                  <h3 className="font-bold text-[#202124] text-base sm:text-lg">
                     {sec.title}
                   </h3>
                 </div>
@@ -251,27 +257,27 @@ export const UnitView: React.FC<UnitViewProps> = ({
 
                 {/* Burmese Explanation */}
                 {languageMode === 'bilingual' && sec.contentBurmese && (
-                  <div className="apple-burmese-box myanmar-text text-sm sm:text-base text-[#333336]">
-                    <span className="font-semibold text-[#4285F4] mr-1">🇲🇲</span>
+                  <div className="apple-burmese-box myanmar-text text-sm sm:text-base">
+                    <span className="font-semibold text-[#4285F4] mr-1.5">🇲🇲</span>
                     {sec.contentBurmese}
                   </div>
                 )}
 
                 {/* Authentic Examples with audio */}
                 <div className="space-y-2 pt-2 border-t border-black/[0.05]">
-                  <span className="text-xs font-semibold text-[#333336] tracking-wider uppercase block">
+                  <span className="text-xs font-bold text-slate-500 tracking-wider uppercase block">
                     Examples & Context
                   </span>
-                  <div className="space-y-2">
+                  <div className="space-y-2.5">
                     {sec.examples.map((ex, exIdx) => {
                       const audioKey = `${sec.id}-${exIdx}`;
                       return (
                         <div
                           key={exIdx}
-                          className={`p-3 rounded-xl border transition-colors ${
+                          className={`p-3.5 rounded-xl border transition-all ${
                             ex.isWrong
-                              ? 'bg-[#EA4335]/5 border-[#EA4335]/20 text-[#202124]'
-                              : 'bg-[#F8F9FA] border-black/[0.04] text-[#202124]'
+                              ? 'bg-gradient-to-r from-rose-50/90 to-red-50/40 border-rose-200/80 text-rose-950'
+                              : 'bg-gradient-to-r from-slate-50/90 via-blue-50/20 to-slate-50 border-slate-200/70 hover:border-blue-200 text-[#202124]'
                           }`}
                         >
                           <div className="flex items-start justify-between gap-3">
@@ -281,8 +287,8 @@ export const UnitView: React.FC<UnitViewProps> = ({
                             <button
                               onClick={() => handlePlayAudio(audioKey, ex.text)}
                               title="Listen to pronunciation"
-                              className={`p-1.5 rounded-full text-[#333336] hover:text-[#4285F4] hover:bg-black/[0.05] transition-colors flex-shrink-0 cursor-pointer ${
-                                playingAudioIndex === audioKey ? 'text-[#4285F4] animate-pulse bg-[#4285F4]/10' : ''
+                              className={`p-1.5 rounded-full text-slate-600 bg-white border border-slate-200/60 hover:text-[#4285F4] hover:bg-blue-50 transition-colors flex-shrink-0 cursor-pointer shadow-2xs ${
+                                playingAudioIndex === audioKey ? 'text-[#4285F4] animate-pulse bg-[#4285F4]/15 border-[#4285F4]/30' : ''
                               }`}
                             >
                               <Volume2 className="w-3.5 h-3.5" />
@@ -290,13 +296,13 @@ export const UnitView: React.FC<UnitViewProps> = ({
                           </div>
 
                           {ex.note && (
-                            <p className="text-xs text-[#333336] mt-1 italic">
+                            <p className="text-xs text-slate-600 mt-1.5 italic">
                               {ex.note}
                             </p>
                           )}
 
                           {languageMode === 'bilingual' && ex.burmeseNote && (
-                            <p className="text-xs text-[#4285F4] mt-1 myanmar-text font-normal">
+                            <p className="text-xs text-blue-900 bg-blue-50/80 border border-blue-100/70 p-2 rounded-lg mt-2 myanmar-text font-normal">
                               👉 {ex.burmeseNote}
                             </p>
                           )}
@@ -308,10 +314,10 @@ export const UnitView: React.FC<UnitViewProps> = ({
 
                 {/* Special Note */}
                 {sec.specialNote && (
-                  <div className="p-3.5 bg-[#FBBC05]/10 rounded-xl border border-[#FBBC05]/20 text-sm text-[#202124] flex items-start gap-2.5">
-                    <Info className="w-4 h-4 text-[#FBBC05] flex-shrink-0 mt-0.5" />
+                  <div className="p-4 bg-gradient-to-r from-amber-50 via-yellow-50/40 to-orange-50/30 rounded-xl border border-amber-200/80 text-sm text-amber-950 flex items-start gap-3 shadow-2xs">
+                    <Info className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
                     <div>
-                      <strong className="font-semibold text-[#202124]">Cambridge Note:</strong> {sec.specialNote}
+                      <strong className="font-bold text-amber-900">Cambridge Note:</strong> {sec.specialNote}
                     </div>
                   </div>
                 )}
@@ -321,12 +327,12 @@ export const UnitView: React.FC<UnitViewProps> = ({
           </div>
 
           {/* Action to switch to practice */}
-          <div className="apple-card p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="apple-card bg-gradient-to-r from-blue-50/90 via-indigo-50/40 to-teal-50/30 border border-blue-200/70 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
-              <h4 className="font-semibold text-[#202124] text-base sm:text-lg">
+              <h4 className="font-bold text-[#202124] text-base sm:text-lg">
                 Ready to practice Unit {unit.id}?
               </h4>
-              <p className="text-sm text-[#333336] mt-0.5">
+              <p className="text-sm text-slate-600 mt-0.5">
                 Apply these grammar rules in {unit.exercises.length} interactive exercises with instant feedback.
               </p>
             </div>

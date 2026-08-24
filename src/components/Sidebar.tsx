@@ -62,17 +62,17 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </span>
         </div>
 
-        <div className="flex items-center gap-1 overflow-x-auto no-scrollbar pb-0.5">
+        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-0.5">
           <button
             id="cat-filter-all"
             onClick={() => onSelectCategory(null)}
-            className={`px-2.5 py-1 rounded-full text-sm font-medium whitespace-nowrap transition-all cursor-pointer ${
+            className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
               filterCategory === null
-                ? 'bg-[#202124] text-white'
-                    : 'bg-black/[0.04] text-[#333336] hover:bg-black/[0.08]'
+                ? 'bg-gradient-to-r from-[#4285F4] to-[#1A73E8] text-white shadow-xs'
+                : 'bg-white border border-slate-200/80 text-slate-700 hover:bg-blue-50/60 hover:text-[#1A73E8]'
             }`}
           >
-            All
+            All Units
           </button>
           {categories.map(cat => {
             const isSelected = filterCategory === cat.id;
@@ -81,10 +81,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 key={cat.id}
                 id={`cat-filter-${cat.id}`}
                 onClick={() => onSelectCategory(cat.id)}
-                className={`px-2.5 py-1 rounded-full text-sm font-medium whitespace-nowrap transition-all cursor-pointer ${
+                className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                   isSelected
-                    ? 'bg-[#4285F4] text-white shadow-xs'
-                    : 'bg-black/[0.04] text-[#333336] hover:bg-black/[0.08]'
+                    ? 'bg-gradient-to-r from-[#4285F4] to-[#1A73E8] text-white shadow-xs'
+                    : 'bg-white border border-slate-200/80 text-slate-700 hover:bg-blue-50/60 hover:text-[#1A73E8]'
                 }`}
               >
                 {cat.name}
@@ -95,9 +95,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </div>
 
       {/* Units List */}
-      <div className="flex-1 overflow-y-auto p-2 space-y-1">
+      <div className="flex-1 overflow-y-auto p-2.5 space-y-1.5">
         {filteredUnits.length === 0 ? (
-          <div className="p-8 text-center text-[#333336] text-sm">
+          <div className="p-8 text-center text-slate-500 text-sm">
             No units match your filter.
           </div>
         ) : (
@@ -115,26 +115,26 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 onClick={() => onSelectUnit(unit.id)}
                 className={`group flex items-center justify-between gap-2.5 px-3 py-2.5 rounded-xl cursor-pointer transition-all duration-150 ${
                   isSelected
-                    ? 'bg-white text-[#202124] font-semibold google-glow border border-transparent'
-                    : 'text-[#202124] hover:bg-black/[0.04]'
+                    ? 'bg-gradient-to-r from-blue-50/95 via-indigo-50/70 to-blue-50/40 border border-blue-200/90 text-blue-950 font-semibold shadow-xs'
+                    : 'text-[#202124] hover:bg-slate-100/80 border border-transparent'
                 }`}
               >
                 <div className="flex items-center gap-2.5 min-w-0 flex-1">
                   
                   {/* Number Badge */}
-                  <span className={`text-sm font-semibold flex-shrink-0 w-5 text-right ${
-                    isSelected ? 'text-[#4285F4]' : 'text-[#333336]'
+                  <span className={`text-xs font-bold flex-shrink-0 w-6 h-6 rounded-lg flex items-center justify-center ${
+                    isSelected ? 'bg-gradient-to-br from-[#4285F4] to-[#1A73E8] text-white shadow-2xs' : 'bg-slate-100 text-slate-600'
                   }`}>
                     {formattedNum}
                   </span>
 
                   <div className="min-w-0 flex-1">
-                    <span className={`text-sm truncate block font-medium ${isSelected ? 'text-[#202124] font-semibold' : 'text-[#202124]'}`}>
+                    <span className={`text-sm truncate block ${isSelected ? 'text-blue-950 font-bold' : 'text-[#202124] font-medium'}`}>
                       {unit.title}
                     </span>
 
                     {languageMode === 'bilingual' && (
-                      <p className={`text-sm truncate mt-0.5 myanmar-text font-normal ${isSelected ? 'text-[#4285F4]' : 'text-[#333336]'}`}>
+                      <p className={`text-xs truncate mt-0.5 myanmar-text font-normal ${isSelected ? 'text-indigo-700' : 'text-slate-500'}`}>
                         {unit.summaryBurmese}
                       </p>
                     )}

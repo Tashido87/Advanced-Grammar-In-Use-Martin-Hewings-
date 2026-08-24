@@ -100,21 +100,21 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-black/[0.05] pb-4">
         <div>
           <div className="flex items-center gap-2">
-            <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#202124] text-white tracking-wide">
+            <span className="px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-[#4285F4] to-[#1A73E8] text-white tracking-wide shadow-xs">
               Exercise {exercise.id}
             </span>
             {exercise.targetSections && (
-              <span className="text-xs font-medium text-[#333336]">
-                (Sections {exercise.targetSections.join(", ")})
+              <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-50 text-[#1A73E8] border border-blue-200/60">
+                Sections {exercise.targetSections.join(", ")}
               </span>
             )}
           </div>
-          <p className="font-semibold text-[#202124] text-base sm:text-lg mt-2">
+          <p className="font-bold text-[#202124] text-base sm:text-lg mt-2">
             {exercise.instruction}
           </p>
           {languageMode === 'bilingual' && exercise.instructionBurmese && (
-            <div className="apple-burmese-box myanmar-text mt-1.5 inline-block text-xs">
-              <span className="font-semibold text-[#4285F4] mr-1">👉</span>
+            <div className="apple-burmese-box myanmar-text mt-2 inline-block text-xs sm:text-sm">
+              <span className="font-semibold text-[#4285F4] mr-1.5">👉</span>
               {exercise.instructionBurmese}
             </div>
           )}
@@ -133,7 +133,7 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
           <button
             id={`check-answers-btn-${exercise.id}`}
             onClick={handleCheckAll}
-            className="apple-btn apple-btn-blue px-4 py-1.5 text-xs font-medium cursor-pointer"
+            className="apple-btn apple-btn-blue px-4 py-1.5 text-xs font-medium cursor-pointer shadow-xs"
           >
             <Check className="w-3.5 h-3.5" />
             <span>Check Answers</span>
@@ -143,15 +143,15 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
 
       {/* Word Bank if present */}
       {exercise.wordBank && exercise.wordBank.length > 0 && (
-        <div className="p-3.5 bg-[#F8F9FA] rounded-2xl border border-black/[0.04]">
-          <span className="text-xs font-semibold text-[#333336] tracking-wider uppercase block mb-2">
+        <div className="p-4 bg-gradient-to-r from-amber-50/70 via-yellow-50/40 to-orange-50/30 rounded-2xl border border-amber-200/70 shadow-2xs">
+          <span className="text-xs font-bold text-amber-900 tracking-wider uppercase block mb-2.5">
             Word Bank
           </span>
-          <div className="flex flex-wrap gap-1.5">
+          <div className="flex flex-wrap gap-2">
             {exercise.wordBank.map((word, i) => (
               <span
                 key={i}
-                className="px-2.5 py-1 text-xs font-medium bg-white border border-black/[0.06] rounded-full text-[#202124] shadow-2xs"
+                className="px-3 py-1 text-xs font-semibold bg-white border border-amber-300/80 rounded-lg text-[#202124] shadow-2xs"
               >
                 {word}
               </span>
@@ -177,10 +177,10 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
               id={`question-box-${exercise.id}-${q.id}`}
               className={`p-4 sm:p-5 rounded-2xl border transition-all ${
                 isCorrect
-                  ? 'bg-[#34A853]/5 border-[#34A853]/40'
+                  ? 'bg-gradient-to-r from-emerald-50/80 to-teal-50/40 border-emerald-300 ring-1 ring-emerald-300/60'
                   : isWrong
-                  ? 'bg-[#EA4335]/5 border-[#EA4335]/40'
-                  : 'bg-white border-black/[0.06]'
+                  ? 'bg-gradient-to-r from-rose-50/80 to-red-50/40 border-rose-300 ring-1 ring-rose-300/60'
+                  : 'bg-white hover:border-blue-200/80 border-slate-200/80 shadow-xs'
               }`}
             >
               <div className="flex items-start justify-between gap-2">
@@ -188,11 +188,11 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
                   
                   {/* Prompt Text / Context */}
                   <div className="flex items-center gap-2 mb-1.5">
-                    <span className="text-xs font-semibold text-[#333336]">0{idx + 1}</span>
+                    <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">0{idx + 1}</span>
                     <button
                       onClick={() => handleAudioPlay(q.id, q.prompt)}
                       title="Listen to sentence"
-                      className={`p-1 rounded-full text-[#333336] hover:text-[#4285F4] transition-colors cursor-pointer ${
+                      className={`p-1 rounded-full text-slate-600 hover:text-[#4285F4] hover:bg-blue-50 transition-colors cursor-pointer ${
                         activeAudioId === q.id ? 'text-[#4285F4] animate-pulse bg-[#4285F4]/10' : ''
                       }`}
                     >
@@ -216,8 +216,8 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
                             onClick={() => handleInputChange(q.id, opt)}
                             className={`p-3 rounded-xl text-left text-sm sm:text-base transition-all cursor-pointer ${
                               isSelected
-                                ? 'bg-[#4285F4] text-white font-medium shadow-[0_1px_3px_rgba(0,113,227,0.3)]'
-                                : 'bg-[#F8F9FA] text-[#202124] font-normal hover:bg-black/[0.06]'
+                                ? 'bg-gradient-to-r from-[#4285F4] to-[#1A73E8] text-white font-semibold shadow-xs border border-transparent'
+                                : 'bg-slate-50/90 text-[#202124] font-normal hover:bg-blue-50/60 hover:border-blue-200 border border-slate-200/70'
                             }`}
                           >
                             {opt}
@@ -248,7 +248,7 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
                               ? 'border-[#34A853] bg-white text-[#202124] font-medium ring-1 ring-[#34A853]'
                               : isWrong
                               ? 'border-[#EA4335] bg-white text-[#202124] font-medium ring-1 ring-[#EA4335]'
-                              : 'border-black/[0.1] bg-[#F8F9FA] text-[#202124] focus:bg-white focus:ring-2 focus:ring-[#4285F4]'
+                              : 'border-slate-200/90 bg-slate-50/80 text-[#202124] focus:bg-white focus:ring-2 focus:ring-[#4285F4]'
                           }`}
                         />
                       </div>
@@ -265,22 +265,22 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
                   {isResultChecked && (
                     <div className="mt-3 flex items-center justify-between gap-2 pt-2.5 border-t border-black/[0.04]">
                       {isCorrect ? (
-                        <div className="flex items-center gap-1.5 text-sm font-semibold text-[#34A853]">
+                        <div className="flex items-center gap-1.5 text-sm font-bold text-[#34A853]">
                           <CheckCircle className="w-4 h-4 text-[#34A853]" />
                           <span>Correct usage.</span>
                         </div>
                       ) : (
                         <div className="flex items-center gap-1.5 text-sm font-medium text-[#EA4335]">
                           <XCircle className="w-4 h-4 text-[#EA4335]" />
-                          <span>Key answer: <strong className="font-semibold text-[#202124]">{primaryCorrectAnswer}</strong></span>
+                          <span>Key answer: <strong className="font-bold text-[#202124] bg-white px-2 py-0.5 rounded-md border border-rose-200">{primaryCorrectAnswer}</strong></span>
                         </div>
                       )}
 
                       <button
                         onClick={() => toggleExplanation(q.id)}
-                        className="ml-auto text-sm text-[#4285F4] hover:underline flex items-center gap-1 font-medium cursor-pointer"
+                        className="ml-auto text-sm text-[#1A73E8] hover:underline flex items-center gap-1 font-semibold cursor-pointer"
                       >
-                        <Lightbulb className="w-3.5 h-3.5 text-[#FBBC05]" />
+                        <Lightbulb className="w-3.5 h-3.5 text-amber-500" />
                         <span>{isExpanded ? "Hide Rule" : "Why is this right?"}</span>
                         {isExpanded ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
                       </button>
@@ -289,30 +289,30 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
 
                   {/* Show Answer Toggle view */}
                   {showAnswers && !isResultChecked && (
-                    <div className="mt-2 text-sm font-medium text-[#202124] bg-[#F8F9FA] p-2.5 rounded-xl border border-black/[0.04]">
-                      Answer Key: {primaryCorrectAnswer}
+                    <div className="mt-2.5 text-sm font-semibold text-[#202124] bg-gradient-to-r from-blue-50 to-indigo-50/40 p-3 rounded-xl border border-blue-200/70">
+                      Answer Key: <span className="text-[#1A73E8]">{primaryCorrectAnswer}</span>
                     </div>
                   )}
 
                   {/* Deep Explanation Panel */}
                   {isExpanded && (
-                    <div className="mt-2.5 p-3.5 bg-[#F8F9FA] rounded-xl text-sm text-[#202124] space-y-2 border border-black/[0.04]">
+                    <div className="mt-3 p-4 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/20 rounded-xl text-sm text-[#202124] space-y-2.5 border border-blue-100/80 shadow-2xs">
                       <p className="font-normal leading-relaxed">
-                        <strong className="font-semibold text-[#202124]">Grammar Rule:</strong> {q.explanation}
+                        <strong className="font-bold text-[#202124]">Grammar Rule:</strong> {q.explanation}
                       </p>
                       {languageMode === 'bilingual' && q.explanationBurmese && (
-                        <p className="text-[#4285F4] pt-1.5 border-t border-black/[0.05] myanmar-text font-normal">
+                        <div className="text-[#1A73E8] bg-white/90 p-3 rounded-lg border border-blue-100/70 myanmar-text font-normal">
                           🇲🇲 <strong>မြန်မာဘာသာ ရှင်းလင်းချက်:</strong> {q.explanationBurmese}
-                        </p>
+                        </div>
                       )}
                       {onAskAI && (
                         <div className="pt-1">
                           <button
                             onClick={() => onAskAI(`Explain why the answer for this sentence is "${primaryCorrectAnswer}": "${q.prompt}"`, q.explanation)}
-                            className="inline-flex items-center gap-1 text-xs font-medium text-[#4285F4] hover:underline cursor-pointer"
+                            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#1A73E8] hover:underline cursor-pointer"
                           >
-                            <Sparkles className="w-3 h-3 text-[#4285F4]" />
-                            Ask AI Tutor for deeper explanation
+                            <Sparkles className="w-3.5 h-3.5 text-[#4285F4]" />
+                            <span>Ask AI Tutor for deeper explanation</span>
                           </button>
                         </div>
                       )}
@@ -329,15 +329,15 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
       {/* Score Summary & Tip Banner */}
       <div className="space-y-3 pt-2">
         {checkedQuestions > 0 && correctTotal === totalQuestions && totalQuestions > 0 && (
-          <div className="p-4 bg-[#34A853]/10 border border-[#34A853]/25 rounded-2xl flex items-center gap-3.5 my-2 transition-all">
+          <div className="p-4 bg-gradient-to-r from-emerald-50/90 via-teal-50/50 to-white border border-emerald-300 rounded-2xl flex items-center gap-3.5 my-2 transition-all shadow-xs">
             <div className="w-10 h-10 bg-[#34A853] rounded-xl flex items-center justify-center text-white flex-shrink-0 google-glow border border-transparent">
               <Check className="w-5 h-5 stroke-[2.5]" />
             </div>
             <div>
-              <h4 className="text-base font-semibold text-[#202124]">
+              <h4 className="text-base font-bold text-emerald-950">
                 Exercise Mastered! (100% Score)
               </h4>
-              <p className="text-sm text-[#333336] mt-0.5">
+              <p className="text-sm text-emerald-900/80 mt-0.5">
                 {languageMode === 'bilingual' 
                   ? 'အဖြေအားလုံး မှန်ကန်စွာ ဖြေဆိုပြီးပါပြီ။ သဒ္ဒါစည်းမျဉ်းကို ကျွမ်းကျင်စွာ နားလည်သွားပါပြီ။'
                   : 'All questions answered accurately. You have mastered these Cambridge Advanced rules!'}
@@ -346,18 +346,18 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
           </div>
         )}
 
-        <div className="p-4 bg-[#F8F9FA] border border-black/[0.04] rounded-2xl flex items-start gap-2.5 text-sm text-[#333336]">
-          <Lightbulb className="w-4 h-4 text-[#FBBC05] flex-shrink-0 mt-0.5" />
+        <div className="p-4 bg-gradient-to-r from-amber-50/90 via-yellow-50/40 to-orange-50/30 border border-amber-200/80 rounded-2xl flex items-start gap-3 text-sm text-amber-950 shadow-2xs">
+          <Lightbulb className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
           <p className="leading-relaxed">
-            <strong className="text-[#202124] font-medium">Cambridge Tip:</strong> Advanced English tests subtle nuances in aspect, modal probability, and inversion. Review answer keys and explanations to consolidate your knowledge.
+            <strong className="text-amber-900 font-bold">Cambridge Tip:</strong> Advanced English tests subtle nuances in aspect, modal probability, and inversion. Review answer keys and explanations to consolidate your knowledge.
           </p>
         </div>
 
         <div className="flex items-center justify-between pt-2 border-t border-black/[0.05] text-xs text-[#333336]">
           <div>
-            <span>Answered: {answeredQuestions} of {totalQuestions}</span>
+            <span className="font-medium">Answered: {answeredQuestions} of {totalQuestions}</span>
             {checkedQuestions > 0 && (
-              <span className="ml-3 font-semibold text-[#202124] bg-black/[0.04] px-2.5 py-0.5 rounded-full">
+              <span className="ml-3 font-bold text-emerald-800 bg-emerald-50 border border-emerald-200/70 px-3 py-1 rounded-full shadow-2xs">
                 Score: {correctTotal} / {totalQuestions} ({Math.round((correctTotal / totalQuestions) * 100)}%)
               </span>
             )}
@@ -365,7 +365,7 @@ export const InteractiveExercise: React.FC<InteractiveExerciseProps> = ({
           <button
             id={`toggle-answers-btn-${exercise.id}`}
             onClick={() => setShowAnswers(!showAnswers)}
-            className="text-xs text-[#333336] hover:text-[#202124] underline cursor-pointer"
+            className="text-xs text-[#1A73E8] hover:underline font-semibold cursor-pointer"
           >
             {showAnswers ? "Hide Answer Keys" : "Show Answer Keys"}
           </button>
